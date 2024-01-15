@@ -13,7 +13,7 @@ def change_repo_visibility(client, message):
     try:
         # Ensure that only the owner can use these commands
         if message.from_user.id != OWNER_ID:
-            message.reply_text("You are not authorized to use this command.")
+            message.reply_text("Yᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴀᴜᴛʜᴏʀɪᴢᴇᴅ ᴛᴏ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ")
             return
 
         # Extracting GitHub repository URL from the command
@@ -36,9 +36,9 @@ def change_repo_visibility(client, message):
             visibility_status = "private" if is_private else "public"
             message.reply_text(f"Repository {username}/{repo_name} set to {visibility_status}.")
         else:
-            message.reply_text(f"Failed to set repository visibility. Status code: {response.status_code}")
+            message.reply_text(f"Fᴀɪʟᴇᴅ ᴛᴏ sᴇᴛ ʀᴇᴘᴏsɪᴛᴏʀʏ ᴠɪsɪʙɪʟɪᴛʏ. Sᴛᴀᴛᴜs ᴄᴏᴅᴇ: {response.status_code}")
 
     except IndexError:
-        message.reply_text(f"Please provide a valid GitHub repository URL after the /{message.command[0]} command.")
+        message.reply_text(f"Pʟᴇᴀsᴇ ᴘʀᴏᴠɪᴅᴇ ᴀ ᴠᴀʟɪᴅ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ URL ᴀғᴛᴇʀ ᴛʜᴇ /{message.command[0]} command.")
     except Exception as e:
         message.reply_text(f"An error occurred: {str(e)}")
