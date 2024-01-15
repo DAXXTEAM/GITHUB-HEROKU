@@ -1,10 +1,11 @@
 from pyrogram import Client, filters
 import requests
+import config
 from urllib.parse import urlparse
 from daxxop import daxxop as app
 from config import OWNER_ID
 
-github_token = "YOUR GIT TOKEN"
+github_token = config.GIT_TOKEN
 
 
 @app.on_message(filters.command("fork") & filters.user(OWNER_ID))
