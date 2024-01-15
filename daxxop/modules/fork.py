@@ -14,7 +14,7 @@ def fork_command(client, message):
 
     command_parts = message.text.split(" ")
     if len(command_parts) != 2:
-        message.reply_text("Iɴᴠᴀʟɪᴅ ᴄᴏᴍᴍᴀɴᴅ. Usᴇ /frok [ʀᴇᴘᴏsɪᴛᴏʀʏ_ᴜʀʟ]")
+        message.reply_text("Iɴᴠᴀʟɪᴅ ᴄᴏᴍᴍᴀɴᴅ. Usᴇ /fork [ʀᴇᴘᴏsɪᴛᴏʀʏ_ᴜʀʟ]")
         return
 
     repo_url = command_parts[1]
