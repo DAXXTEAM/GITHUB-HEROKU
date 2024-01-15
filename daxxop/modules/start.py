@@ -2,21 +2,9 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from daxxop import daxxop
 from config import BOT_USERNAME
+from config import OWNER_ID
 
 #⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-
-logger_group_chat_id = -100180299074
-
-# Function to send a start message to the logger group
-def send_start_message():
-    bot_info = app.get_me()
-    start_message = (
-        f"ʙᴏᴛ sᴛᴀʀᴛᴇᴅ :\n"
-        f"ɪᴅ : {bot_info.id}\n"
-        f"ɴᴀᴍᴇ : {bot_info.first_name}\n"
-        f"ᴜsᴇʀɴᴀᴍᴇ : {bot_info.username}"
-    )
-    app.send_message(logger_group_chat_id, start_message)
 
 #⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 
@@ -39,7 +27,7 @@ async def start(_, msg):
           InlineKeyboardButton("ᴀᴅᴅ ᴍᴇ", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
         ],
         [
-          InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url="https://t.me/iam_daxx"),
+          InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url="https://t.me/HEROKUFREECC"),
           InlineKeyboardButton("ᴅᴇᴠ", url="https://t.me/iam_daxx"),
           InlineKeyboardButton("ʜᴇʟᴘ", callback_data="help_")
         ]]
