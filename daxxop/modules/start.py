@@ -4,7 +4,11 @@ from daxxop import daxxop
 from config import BOT_USERNAME
 
 start_txt = """**
-land lelo mera
+🤖 Wᴇʟᴄᴏᴍᴇ ᴛᴏ GɪᴛHᴜʙ Cᴏɴᴛʀᴏʟ Bᴏᴛ! 🚀
+
+Tʜɪs ʙᴏᴛ ᴀʟʟᴏᴡs ʏᴏᴜ ᴛᴏ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀɪᴇs ʀɪɢʜᴛ ғʀᴏᴍ Tᴇʟᴇɢʀᴀᴍ. Usᴇ ᴄᴏᴍᴍᴀɴᴅs ʟɪᴋᴇ /gitprivate ᴀɴᴅ /gitpublic ᴛᴏ ᴄʜᴀɴɢᴇ ʀᴇᴘᴏsɪᴛᴏʀʏ ᴠɪsɪʙɪʟɪᴛʏ. Eɴsᴜʀᴇ ᴛᴏ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛᴇ ᴡɪᴛʜ ʏᴏᴜʀ GɪᴛHᴜʙ ᴛᴏᴋᴇɴ ғᴏʀ sᴇᴄᴜʀᴇ ᴀᴄᴄᴇss. Fᴏʀ ᴀssɪsᴛᴀɴᴄᴇ, ᴜsᴇ /help.
+
+🔗 GɪᴛHᴜʙ Cᴏɴᴛʀᴏʟ Bᴏᴛ ɪs ʜᴇʀᴇ ᴛᴏ sɪᴍᴘʟɪғʏ ʏᴏᴜʀ GɪᴛHᴜʙ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ᴇxᴘᴇʀɪᴇɴᴄᴇ. Hᴀᴘᴘʏ ᴄᴏᴅɪɴɢ!
 **"""
 
 
