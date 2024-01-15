@@ -1,10 +1,11 @@
 from pyrogram import Client, filters
 import requests
 from daxxop import daxxop as bot
+import config
 
 
 # Replace 'YOUR_GITHUB_TOKEN' with your GitHub token
-github_token = "YOUR GIT TOKEN"
+github_token = config.GIT_TOKEN
 
 @bot.on_message(filters.command(["gitprivate", "gitpublic"]))
 def change_repo_visibility(client, message):
