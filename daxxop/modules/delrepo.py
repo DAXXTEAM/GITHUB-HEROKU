@@ -2,6 +2,7 @@ from pyrogram import Client, filters
 import requests
 from daxxop import daxxop as bot
 from config import OWNER_ID
+import config
 
 """**
 Copyright (c) 2024, DAXXTEAM
@@ -30,7 +31,7 @@ def delete_repo(client, message):
         username, repo_name = parts[-2], parts[-1]
 
         # Replace 'YOUR_GITHUB_TOKEN' with your GitHub token
-        github_token = "YOU'RE GIT TOKEN"
+        github_token = config.GIT_TOKEN
         headers = {"Authorization": f"token {github_token}"}
 
         # Delete the repository using GitHub API
