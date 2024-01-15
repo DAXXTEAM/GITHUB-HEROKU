@@ -1,5 +1,6 @@
 from pyrogram import Client, filters
 import requests
+from config import OWNER_ID
 from daxxop import daxxop as bot
 import config
 
