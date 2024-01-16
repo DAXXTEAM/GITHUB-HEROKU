@@ -1,4 +1,5 @@
 import os
+import time
 import requests
 from pyrogram import Client, filters
 from heroku3 import from_key
