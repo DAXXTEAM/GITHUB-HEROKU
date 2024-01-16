@@ -7,20 +7,14 @@ from dotenv import load_dotenv
 from pyrogram import Client
 from config import API_ID, API_HASH, BOT_TOKEN, LOGGER_ID
 
-
-
-
 loop = asyncio.get_event_loop()
 load_dotenv()
 boot = time.time()
-
 
 logging.basicConfig(
     format="[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s",
     level=logging.INFO,
 )
-
-
 
 daxxop = Client(
     ":daxxop:",
@@ -29,10 +23,9 @@ daxxop = Client(
     bot_token=BOT_TOKEN,
 )
 
-
-
 async def daxxop_bot():
     global BOT_ID, BOT_NAME, BOT_USERNAME
+    await daxxop.start()  # Start the client before executing any coroutine
     await daxxop.send_message(LOGGER_ID, text=" I AM ALIGE !!")
     getme = await daxxop.get_me()
     BOT_ID = getme.id
@@ -41,6 +34,6 @@ async def daxxop_bot():
         BOT_NAME = getme.first_name + " " + getme.last_name
     else:
         BOT_NAME = getme.first_name
-
+    await daxxop.stop()
 
 loop.run_until_complete(daxxop_bot())
