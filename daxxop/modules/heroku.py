@@ -39,7 +39,7 @@ async def heroku_logs_command(client, message):
         await message.reply_text(f"Error fetching Heroku logs: {str(e)}")
 
 
------------------ ---------------------------------------------
+#----------------- ---------------------------------------------
 
 def delete_heroku_app(app_name):
     heroku_conn = from_key(heroku_api_key)
