@@ -80,7 +80,7 @@ async def github(_, message):
 # --------------------------------------------------------------------------------- #
     
     # Create an inline keyboard with a close button
-    close_button = InlineKeyboardButton("Close", callback_data="close")
+    close_button = InlineKeyboardButton("Close", callback_data="close_data")
     inline_keyboard = InlineKeyboardMarkup([[close_button]])
 # --------------------------------------------------------------------------------- #
     
