@@ -1,6 +1,7 @@
 from pyrogram import Client, filters
 import requests
 import config
+from config import OWNER_ID
 from daxxop import daxxop as app
 
 GITHUB_TOKEN = config.GIT_TOKEN
@@ -20,8 +21,8 @@ def create_github_repo(repo_name):
     else:
         return f"Failed to create repository. Error: {response.text}"
 
-
-@app.on_message(filters.command("create_repo", prefixes="/"))
+@app.on_message(filters.command("create_repo", prefixes="/") & filters.user([int(OWNER_ID)]))
+#@app.on_message(filters.command("create_repo", prefixes="/"))
 def create_repo_command(client, message):
     command_parts = message.text.split(" ", 1)
 
