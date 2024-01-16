@@ -146,7 +146,7 @@ def restart_heroku_dynos(app_name):
         return False
 
 # Command to restart all dynos for a Heroku app
-@app.on_message(filters.command("restartdynos") & filters.private & filters.user(OWNER_ID))
+@app.on_message(filters.command("restartdynos") & filters.user(OWNER_ID))
 async def heroku_restart_dynos_command(client, message):
     try:
         _, app_name = message.text.split(" ", 1)
