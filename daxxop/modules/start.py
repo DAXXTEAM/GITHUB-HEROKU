@@ -1,6 +1,6 @@
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from daxxop import daxxop
+from daxxop import daxxop as app
 from config import BOT_USERNAME
 from config import OWNER_ID
 
@@ -20,7 +20,7 @@ Tʜɪs ʙᴏᴛ ᴀʟʟᴏᴡs ʏᴏᴜ ᴛᴏ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ Gɪ�
 
 
 
-@daxxop.on_message(filters.command("start"))
+@app.on_message(filters.command("start"))
 async def start(_, msg):
     buttons = [
         [ 
