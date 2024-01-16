@@ -6,7 +6,7 @@ from config import OWNER_ID
 
 # ----------------------- ------# ----------------------- ------
 
-heroku_api_key = '90c67d1a-5bc5-4fe2-898b-93910774096b'
+heroku_api_key = 'ccb94c02-9e60-4605-97b1-3977084781a8'
 
 # ----------------------- ------# ----------------------- ------
 
@@ -122,3 +122,40 @@ async def heroku_apps_command(client, message):
         await message.reply_text(response)
     except Exception as e:
         await message.reply_text(f"Error fetching Heroku apps: {str(e)}")
+
+
+
+# --------------------# --------------------# --------------------
+def restart_heroku_dynos(app_name):
+    heroku_api_url = f"https://api.heroku.com/apps/{app_name}/dynos"
+
+    headers = {
+        "Accept": "application/vnd.heroku+json; version=3",
+        "Authorization": f"Bearer {heroku_api_key}",
+    }
+
+    # Restart all dynos by deleting them
+    response = requests.delete(heroku_api_url, headers=headers)
+
+    print(f"Heroku API Response: {response.status_code}")
+    print(f"Heroku API Response Text: {response.text}")
+
+    if response.status_code == 200:
+        return True
+    else:
+        return False
+
+# Command to restart all dynos for a Heroku app
+@app.on_message(filters.command("restartdynos") & filters.private & filters.user(OWNER_ID))
+async def heroku_restart_dynos_command(client, message):
+    try:
+        _, app_name = message.text.split(" ", 1)
+
+        if restart_heroku_dynos(app_name):
+            await message.reply_text("Dynos restarted successfully.")
+        else:
+            await message.reply_text(f"ʀᴇsᴇᴛᴛɪɴɢ.............")
+    except ValueError:
+        await message.reply_text("Invalid command format. Use /restartdynos <app_name>")
+    except Exception as e:
+        await message.reply_text(f"Error restarting dynos: {str(e)}")
