@@ -1,5 +1,6 @@
 import requests
 import config
+from config import BOT_USERNAME
 
 def bot_start(token, chat_id, message):
     url = f"https://api.telegram.org/bot{token}/sendMessage"
@@ -14,6 +15,6 @@ def bot_start(token, chat_id, message):
 
 telegram_bot_token = config.BOT_TOKEN
 telegram_chat_id = '@herokufreecc'
-start_message = "done"
+start_message = "" {BOT_USERNAME} sᴜᴄᴄᴇssғᴜʟ sᴛᴀʀᴛᴇᴅ ""
 
 bot_start(telegram_bot_token, telegram_chat_id, start_message)
