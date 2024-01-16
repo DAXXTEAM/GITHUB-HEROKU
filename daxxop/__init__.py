@@ -5,7 +5,7 @@ from importlib import import_module
 from os import listdir, path
 from dotenv import load_dotenv
 from pyrogram import Client
-from config import API_ID, API_HASH, BOT_TOKEN
+from config import API_ID, API_HASH, BOT_TOKEN, LOGGER_ID
 
 
 
@@ -33,7 +33,7 @@ daxxop = Client(
 
 async def daxxop_bot():
     global BOT_ID, BOT_NAME, BOT_USERNAME
-    await daxxop.start()
+    await daxxop.send_message(LOGGER_ID, text=" I AM ALIGE !!")
     getme = await daxxop.get_me()
     BOT_ID = getme.id
     BOT_USERNAME = getme.username
