@@ -37,3 +37,30 @@ async def heroku_logs_command(client, message):
         await message.reply_text("Invalid command format. Use /herokulogs <app_name>")
     except Exception as e:
         await message.reply_text(f"Error fetching Heroku logs: {str(e)}")
+
+
+# ----------------------- ----------------------- ---------------------------------------------
+
+def delete_heroku_app(app_name):
+    heroku_conn = from_key(heroku_api_key)
+
+    if not heroku_conn.apps().get(app_name):
+        return f"App '{app_name}' not found on Heroku."
+
+    app = heroku_conn.apps()[app_name]
+    
+    # Delete the Heroku app
+    app.delete()
+    
+    return f"Heroku app '{app_name}' has been deleted."
+
+@app.on_message(filters.command("delheroku") & filters.user(OWNER_ID))
+async def delete_heroku_command(client, message):
+    try:
+        _, app_name = message.text.split(" ", 1)
+        response = delete_heroku_app(app_name)
+        await message.reply_text(response)
+    except ValueError:
+        await message.reply_text("Invalid command format. Use /delheroku <app_name>")
+    except Exception as e:
+        await message.reply_text(f"Error deleting Heroku app: {str(e)}")
