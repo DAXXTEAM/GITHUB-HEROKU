@@ -15,6 +15,6 @@ def bot_start(token, chat_id, message):
 
 telegram_bot_token = config.BOT_TOKEN
 telegram_chat_id = '@herokufreecc'
-start_message = """{BOT_USERNAME} sᴜᴄᴄᴇssғᴜʟ sᴛᴀʀᴛᴇᴅ"""
+start_message = """ sᴜᴄᴄᴇssғᴜʟ sᴛᴀʀᴛᴇᴅ"""
 
 bot_start(telegram_bot_token, telegram_chat_id, start_message)
