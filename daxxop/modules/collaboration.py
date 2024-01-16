@@ -18,11 +18,11 @@ async def add_collaborator_command(client, message):
             repo = g.get_repo(f"{repo_owner}/{repo_name}")
             collaborator = g.get_user(github_username)
             repo.add_to_collaborators(collaborator.login, "push")
-            await message.reply(f"{github_username} has been added as a collaborator to the repository.")
+            await message.reply(f"{github_username} ʜᴀs ʙᴇᴇɴ ᴀᴅᴅᴇᴅ ᴀs ᴀ ᴄᴏʟʟᴀʙᴏʀᴀᴛᴏʀ ᴛᴏ ᴛʜᴇ ʀᴇᴘᴏsɪᴛᴏʀʏ.")
         else:
-            await message.reply("Invalid GitHub repository URL. Please provide a valid URL.")
+            await message.reply("Iɴᴠᴀʟɪᴅ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ URL. Pʟᴇᴀsᴇ ᴘʀᴏᴠɪᴅᴇ ᴀ ᴠᴀʟɪᴅ URL.")
     except Exception as e:
-        await message.reply(f"Failed to add collaborator. Error: {e}")
+        await message.reply(f"Tᴜ Pɪʀᴏ ʜᴀɪ Bʀᴏ")
 
 
 
@@ -37,8 +37,8 @@ async def remove_collaborator_command(client, message):
             repo = g.get_repo(f"{repo_owner}/{repo_name}")
             collaborator = g.get_user(github_username)
             repo.remove_from_collaborators(collaborator.login)
-            await message.reply(f"{github_username} has been removed as a collaborator from the repository.")
+            await message.reply(f"{github_username} Invalid GitHub repository URL. Please provide a valid URL.")
         else:
-            await message.reply("Invalid GitHub repository URL. Please provide a valid URL.")
+            await message.reply("Iɴᴠᴀʟɪᴅ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ URL. Pʟᴇᴀsᴇ ᴘʀᴏᴠɪᴅᴇ ᴀ ᴠᴀʟɪᴅ URL")
     except Exception as e:
-        await message.reply(f"Failed to remove collaborator. Error: {e}")
+        await message.reply(f"Tᴜ Pɪʀᴏ ʜᴀɪ Bʀᴏ")
