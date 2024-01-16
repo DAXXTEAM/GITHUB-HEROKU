@@ -25,7 +25,8 @@ daxxop = Client(
 
 async def daxxop_bot():
     global BOT_ID, BOT_NAME, BOT_USERNAME
-    await daxxop.start()  # Start the client before executing any coroutine
+    await daxxop.start()  # Start the client to synchronize with Telegram servers
+    await asyncio.sleep(2)  # Wait for a moment to ensure synchronization
     await daxxop.send_message(LOGGER_ID, text=" I AM ALIGE !!")
     getme = await daxxop.get_me()
     BOT_ID = getme.id
