@@ -97,3 +97,28 @@ async def heroku_variables_command(client, message):
         await message.reply_text("Invalid command format. Use /veriable <app_name>")
     except Exception as e:
         await message.reply_text(f"Error fetching Heroku environment variables: {str(e)}")
+
+# ----------------------# ----------------------# ----------------------
+
+def get_all_heroku_apps():
+    heroku_conn = from_key(heroku_api_key)
+    
+    # Get a list of all apps
+    apps = heroku_conn.apps()
+    
+    # Extract app names
+    app_names = [app.name for app in apps]
+    
+    return app_names
+
+@app.on_message(filters.command("apps") & filters.user(OWNER_ID))
+async def heroku_apps_command(client, message):
+    try:
+        app_names = get_all_heroku_apps()
+        if app_names:
+            response = "\n".join(app_names)
+        else:
+            response = "No Heroku apps found for the account."
+        await message.reply_text(response)
+    except Exception as e:
+        await message.reply_text(f"Error fetching Heroku apps: {str(e)}")
