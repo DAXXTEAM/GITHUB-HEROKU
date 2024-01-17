@@ -46,30 +46,11 @@ async def start(_, msg):
 
 
 
-#➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪
-
-
+#➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪
 @app.on_callback_query()
 def callback_query_handler(client, query):
     if query.data == 'help':
-        buttons = [
-            [
-                InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url="https://t.me/HEROKUFREECC"),
-                InlineKeyboardButton("ᴅᴇᴠ", url="https://t.me/iam_daxx"),
-                InlineKeyboardButton("GitHub", callback_data="githelp")
-            ]
-        ]
-
-        reply_markup = InlineKeyboardMarkup(buttons)
-        # You can send the reply_markup as needed, for example:
-        client.send_message(chat_id=query.from_user.id, text="Choose an option:", reply_markup=reply_markup)
-
-
-
-@app.on_callback_query()
-def callback_query_handler(client, query):
-    if query.data == 'githelp':
-        git_text = (
+        help_text = (
             "GitHub Control Bot Commands:\n"
             "/start - Start the bot\n"
             "/help - Display this help message\n"
@@ -79,7 +60,7 @@ def callback_query_handler(client, query):
             "/add_collaborator - Add a collaborator to a GitHub repository\n"
             "/remove_collaborator - Remove a collaborator from a GitHub repository"
         )
-        query.message.edit_text(git_text)
+        query.message.edit_text(help_text)
         
 # incoming msg
 
