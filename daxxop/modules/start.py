@@ -53,15 +53,15 @@ async def start(_, msg):
 @app.on_callback_query()
 def callback_query_handler(client, query):
     if query.data == 'help':
-    reply_markup = InlineKeyboardMarkup([
-        [InlineKeyboardButton("GitHub", callback_data="git_help")],
-        [InlineKeyboardButton("Heroku", url="https://dashboard.heroku.com/")]
-    ])
-    client.send_message(
-        chat_id=message.chat.id,
-        text=help_text,
-        reply_markup=reply_markup
-    )
+    buttons = [
+        
+        [
+          InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url="https://t.me/HEROKUFREECC"),
+          InlineKeyboardButton("ᴅᴇᴠ", url="https://t.me/iam_daxx"),
+          InlineKeyboardButton("GitHub", callback_data="git_help")
+        ]]
+    
+    reply_markup = InlineKeyboardMarkup(buttons)
 
 
 
