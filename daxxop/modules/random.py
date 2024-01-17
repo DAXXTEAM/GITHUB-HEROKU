@@ -17,7 +17,7 @@ async def count_messages(client, message):
         message_counts[chat_id] = 1
 
     
-    if message_counts[chat_id] >= 20:
+    if message_counts[chat_id] >= 100:
         
         message_counts[chat_id] = 0
         
