@@ -1,13 +1,28 @@
 from pyrogram.types import Message
 import asyncio, os, time, aiohttp
-import aiohttp
+from telegraph import upload_file
 import random 
 from datetime import datetime
 from pyrogram import filters, Client, enums
-from pyrogram import filters
 from daxxop import daxxop as app
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
 
+
+# -----------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------
+@app.on_message(filters.command(["tgm" , "telegraph"]))
+def ul(_, message):
+    reply = message.reply_to_message
+    if reply.media:
+        i = message.reply("ᴍᴀᴋɪɴɢ ᴀ ᴛᴇʟᴇɢʀᴀᴘʜ ʟɪɴᴋ ᴡᴀɪᴛ ᴀ sᴇᴄ.")
+        path = reply.download()
+        fk = upload_file(path)
+        for x in fk:
+            url = "https://graph.org" + x
+
+        i.edit(f'Yᴏᴜʀ ʟɪɴᴋ sᴜᴄᴄᴇssғᴜʟ Gᴇɴ {url}')
+
+# -------------------------------------------------------------------------------------
 # --------------------------------------------------------------------------------- #
 
 @app.on_message(filters.command("id"))
