@@ -49,25 +49,6 @@ async def start(_, msg):
 #➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪
 
 
-
-
-"""@app.on_message(filters.command("help", prefixes="/"))
-def help_command(_, message):
-    help_message = (
-        "GitHub Control Bot Commands:\n"
-        "/start - Start the bot\n"
-        "/help - Display this help message\n"
-        "/allrepo - List your GitHub repositories\n"
-        "/create_repo - Create a new GitHub repository\n"
-        "/delrepo - Delete a GitHub repository\n"
-        "/add_collaborator - Add a collaborator to a GitHub repository\n"
-        "/remove_collaborator - Remove a collaborator from a GitHub repository"
-    )
-
-    keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("Help", callback_data='help')]])
-
-    message.reply_text(help_message, reply_markup=keyboard)"""
-
 @app.on_callback_query()
 def callback_query_handler(client, query):
     if query.data == 'help':
