@@ -70,14 +70,14 @@ def handle_repo_callback(client, callback_query):
 def callback_query_handler(client, query):
     if query.data == 'githelp':
         ghelp_text = (
-            "GitHub Control Bot Commands:\n"
-            "/start - Start the bot\n"
-            "/help - Display this help message\n"
-            "/allrepo - List your GitHub repositories\n"
-            "/create_repo - Create a new GitHub repository\n"
-            "/delrepo - Delete a GitHub repository\n"
-            "/add_collaborator - Add a collaborator to a GitHub repository\n"
-            "/remove_collaborator - Remove a collaborator from a GitHub repository"
+            "๏ ɢɪᴛʜᴜʙ & ʜᴇʀᴏᴋᴜ ᴄᴏɴᴛʀᴏʟ ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅs ๏\n"
+            "➪/start - sᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ \n"
+            "➪/help -  Dɪsᴘʟᴀʏ ᴛʜɪs ʜᴇʟᴘ ᴍᴇssᴀɢᴇ\n"
+            "➪/allrepo - Lɪsᴛ ʏᴏᴜʀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀɪᴇs ᴜsᴇ `/allrepo daxxteam`\n\n"
+            "➪/create_repo - Cʀᴇᴀᴛᴇ ᴀ ɴᴇᴡ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
+            "➪/delrepo - Dᴇʟᴇᴛᴇ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
+            "➪/add_collaborator - Aᴅᴅ ᴀ ᴄᴏʟʟᴀʙᴏʀᴀᴛᴏʀ ᴛᴏ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
+            "➪/remove_collaborator - Rᴇᴍᴏᴠᴇ ᴀ ᴄᴏʟʟᴀʙᴏʀᴀᴛᴏʀ ғʀᴏᴍ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ "
         )
 
         
