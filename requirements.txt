@@ -6,6 +6,7 @@ asyncio==3.4.3
 python-dotenv==1.0.0
 GitPython
 gtts
+telegraph
 heroku3
 PyGithub==2.1.1
 openai==0.28.0
