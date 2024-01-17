@@ -29,15 +29,15 @@ start_txt = """**
 async def start(_, msg):
     buttons = [
         [ 
-          InlineKeyboardButton("ᴀᴅᴅ ᴍᴇ", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+          InlineKeyboardButton("๏ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ๏", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
         ],
         [
-          InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url="https://t.me/HEROKUFREECC"),
+          InlineKeyboardButton("๏sᴜᴘᴘᴏʀᴛ ᴛᴇᴀᴍ๏", url="https://t.me/HEROKUFREECC"),
           InlineKeyboardButton("ᴅᴇᴠ", user_id=config.OWNER_ID)
         ],
         [
-          InlineKeyboardButton("ʜᴇʟᴘ", callback_data="githelp"),
-          InlineKeyboardButton("ʀᴇᴘᴏ", callback_data="repo_callback")
+          InlineKeyboardButton("๏ʙᴏᴛ ғᴇᴀᴛᴜʀᴇs๏", callback_data="githelp"),
+          InlineKeyboardButton("๏ʙᴏᴛ ᴄᴏᴅᴇs๏", callback_data="repo_callback")
         ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
