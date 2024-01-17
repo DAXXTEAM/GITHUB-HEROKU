@@ -49,26 +49,20 @@ async def start(_, msg):
 #➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪
 
 
-
 @app.on_callback_query()
 def callback_query_handler(client, query):
     if query.data == 'help':
-    buttons = [
-        
-        [
-          InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url="https://t.me/HEROKUFREECC"),
-          InlineKeyboardButton("ᴅᴇᴠ", url="https://t.me/iam_daxx"),
-          InlineKeyboardButton("GitHub", callback_data="git_help")
-        ]]
-    
-    reply_markup = InlineKeyboardMarkup(buttons)
+        buttons = [
+            [
+                InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url="https://t.me/HEROKUFREECC"),
+                InlineKeyboardButton("ᴅᴇᴠ", url="https://t.me/iam_daxx"),
+                InlineKeyboardButton("GitHub", callback_data="git_help")
+            ]
+        ]
 
-
-
-
-
-
-
+        reply_markup = InlineKeyboardMarkup(buttons)
+        # You can send the reply_markup as needed, for example:
+        client.send_message(chat_id=query.from_user.id, text="Choose an option:", reply_markup=reply_markup)
 
 
 
