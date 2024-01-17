@@ -56,7 +56,7 @@ def callback_query_handler(client, query):
             [
                 InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url="https://t.me/HEROKUFREECC"),
                 InlineKeyboardButton("ᴅᴇᴠ", url="https://t.me/iam_daxx"),
-                InlineKeyboardButton("GitHub", callback_data="git_help")
+                InlineKeyboardButton("GitHub", callback_data="githelp")
             ]
         ]
 
@@ -68,7 +68,7 @@ def callback_query_handler(client, query):
 
 @app.on_callback_query()
 def callback_query_handler(client, query):
-    if query.data == 'git_help':
+    if query.data == 'githelp':
         git_text = (
             "GitHub Control Bot Commands:\n"
             "/start - Start the bot\n"
