@@ -60,7 +60,7 @@ async def new_callback_function(_, callback_query):
         media=InputMediaVideo("https://telegra.ph/file/ea3ed3d67df8dfa4dd73d.mp4", has_spoiler=True),
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton(text="๏ ʙᴀᴄᴋ ๏", callback_data="start")]
+                [InlineKeyboardButton(text="๏ ʙᴀᴄᴋ ๏", callback_data="githelp")]
             ]
         ),
     )
