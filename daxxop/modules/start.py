@@ -8,7 +8,6 @@ import random
 from pyrogram.types import Message
 
 #⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-logger_group_chat_id = -1001802990747
 #⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 
 
@@ -52,12 +51,6 @@ async def start(_, msg):
 
 #➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪#➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪#➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪
 
-logger_message = f"User {user_name} (@{username}) with ID {user_id} started the bot."
-    
-    # Send the notification to the logger group
-    daxxop.send_message(chat_id=logger_group_chat_id, text=logger_message)
-
-
 #➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪
 
 @app.on_callback_query()
@@ -77,7 +70,7 @@ def callback_query_handler(client, query):
         
         buttons = [
             [
-                InlineKeyboardButton("Close", callback_data="close_data")
+                InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close_data")
             ]
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
