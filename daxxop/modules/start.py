@@ -37,7 +37,7 @@ async def start(_, msg):
         ],
         [
           InlineKeyboardButton("GitHub", callback_data="githelp"),
-          InlineKeyboardButton("Heroku", callback_data="herokuhelp")
+          InlineKeyboardButton("Heroku", callback_data="heroku_data")
         ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -82,11 +82,16 @@ def callback_query_handler(client, query):
 #----------------------------------------------------------------------------------------------
 @app.on_callback_query()
 def callback_query_handler(client, query):
-    if query.data == 'herokuhelp':
+    if query.data == 'heroku_data':
         hhelp_text = (
             "heroku Control Bot Commands:\n"
             "/start - Start the bot\n"
-            
+            "/help - Display this help message\n"
+            "/allrepo - List your GitHub repositories\n"
+            "/create_repo - Create a new GitHub repository\n"
+            "/delrepo - Delete a GitHub repository\n"
+            "/add_collaborator - Add a collaborator to a GitHub repository\n"
+            "/remove_collaborator - Remove a collaborator from a GitHub repository"
         )
 
         
