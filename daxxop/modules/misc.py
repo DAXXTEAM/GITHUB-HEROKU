@@ -90,6 +90,8 @@ async def github(_, message):
     await message.reply_photo(photo=avatar_url, caption=caption, reply_markup=inline_keyboard)
 # --------------------------------------------------------------------------------- #
 
+
+
 WEL_GIFS = [
     "https://telegra.ph/file/bd77135692ad077d34d64.mp4",
     "https://telegra.ph/file/df6e25fd22b0562309640.mp4"
@@ -107,7 +109,7 @@ async def welcome(_, m: Message):
     
     await m.reply_animation(
         random_wel_gif,
-        caption=f"Hɪɪ ᴅᴇᴀʀ {m.from_user.mention}\Wᴇʟᴄᴏᴍᴇ ᴛᴏ {m.chat.title}!\n• Jᴏɪɴᴇᴅ ᴀᴛ: {join_date}\n┏━━━━━━━━━━━━━━━━━━━━┓\n• ꜰᴏʟʟᴏᴡ ᴏᴜʀ ʀᴜʟᴇꜱ ᴘʟᴇᴀꜱᴇ✨\n\n╚»『ᴅᴏɴ'ᴛ ᴜᴘʟᴏᴀᴅ 18+ ᴍᴀᴛᴇʀɪᴀʟ\n╚»『 ꜱᴘᴀᴍᴍɪɴɢ & ꜰɪɪɢʜᴛ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ✨\n╚»『 ᴏᴡɴᴇʀ - ꜱᴇᴄʀᴇᴛ\n╚»『 ɢɪʀʟꜱ ᴅᴍ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ\n╚» ᴏᴛʜᴇʀᴇ ᴡɪsᴇ ʏᴏᴜ ᴡɪʟʟ ɴᴇ ʙᴀɴᴇᴅ\n╚»『 ᴇɴᴊᴏʏ ᴏᴜʀ ɢʀᴏᴜᴘ\n┗━━━━━━━━━━━━━━━━━━━━",
+        caption=f"Hɪɪ ᴅᴇᴀʀ {m.from_user.mention}\nᴡᴇʟᴄᴏᴍᴇ ᴛᴏ {m.chat.title}!\n• Jᴏɪɴᴇᴅ ᴀᴛ: {join_date}\n┏━━━━━━━━━━━━━━━━━━━━┓\n• ꜰᴏʟʟᴏᴡ ᴏᴜʀ ʀᴜʟᴇꜱ ᴘʟᴇᴀꜱᴇ✨\n\n╚»『ᴅᴏɴ'ᴛ ᴜᴘʟᴏᴀᴅ 18+ ᴍᴀᴛᴇʀɪᴀʟ\n╚»『 ꜱᴘᴀᴍᴍɪɴɢ & ꜰɪɪɢʜᴛ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ✨\n╚»『 ᴏᴡɴᴇʀ - ꜱᴇᴄʀᴇᴛ\n╚»『 ɢɪʀʟꜱ ᴅᴍ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ\n╚» ᴏᴛʜᴇʀᴇ ᴡɪsᴇ ʏᴏᴜ ᴡɪʟʟ ɴᴇ ʙᴀɴᴇᴅ\n╚»『 ᴇɴᴊᴏʏ ᴏᴜʀ ɢʀᴏᴜᴘ\n┗━━━━━━━━━━━━━━━━━━━━",
     )
 
 @app.on_message(filters.left_chat_member)
@@ -118,3 +120,4 @@ async def member_has_left(_, m: Message):
         caption=f"Sᴀᴅ Tᴏ Sᴇᴇ Yᴏᴜ Lᴇᴀᴠɪɴɢ {m.from_user.mention}\nTᴀᴋᴇ Cᴀʀᴇ!\n",
         reply_markup=create_close_button()
     )
+    
