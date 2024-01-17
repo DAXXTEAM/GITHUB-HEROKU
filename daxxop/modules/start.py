@@ -80,9 +80,9 @@ def callback_query_handler(client, query):
         query.message.edit_text(ghelp_text, reply_markup=reply_markup)
 
 #----------------------------------------------------------------------------------------------
-@app.on_callback_query(filters.regex(r'^repo_data'))
-def handle_repo_callback(client, callback_query):
-    
+@app.on_callback_query()
+def callback_query_handler(client, query):
+    if query.data == 'repo_data':
     user_id = callback_query.from_user.id
     
     video_file = "https://graph.org/file/52b2315b843584a3c4532.mp4"
