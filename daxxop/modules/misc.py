@@ -2,13 +2,50 @@ from pyrogram.types import Message
 import asyncio, os, time, aiohttp
 from telegraph import upload_file
 import random 
+from config import OWNER_ID
+import config
 from datetime import datetime
 from pyrogram import filters, Client, enums
 from daxxop import daxxop as app
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
 
 
-# -----------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------
+
+@app.on_message(filters.video_chat_started)
+async def brah(_, msg):
+       await msg.reply("**ᴠᴏɪᴄᴇ ᴄʜᴀᴛ sᴛᴀʀᴛᴇᴅ🎤**")
+# --------------------------------------------------------------------------------- #
+@app.on_message(filters.video_chat_ended)
+async def brah2(_, msg):
+       await msg.reply("**ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ᴇɴᴅᴇᴅ📴**")
+
+# --------------------------------------------------------------------------------- #
+@app.on_message(filters.video_chat_members_invited)
+async def brah3(app :app, message:Message):
+           text = f"{message.from_user.mention} ɪɴᴠɪᴛᴇᴅ "
+           x = 0
+           for user in message.video_chat_members_invited.users:
+             try:
+               text += f"[{user.first_name}](tg://user?id={user.id}) "
+               x += 1
+             except Exception:
+               pass
+           try:
+             await message.reply(f"{text} ☄️")
+           except:
+             pass
+
+# --------------------------------------------------------------------------------- #
+
+@app.on_message(filters.command("leavegroup")& filters.user(OWNER_ID))
+async def bot_leave(_, message):
+    chat_id = message.chat.id
+    text = f"ɢᴏᴏᴅ ʙʏᴇ ʙᴀʙʏ🫡"
+    await message.reply_text(text)
+    await app.leave_chat(chat_id=chat_id, delete=True)
+    
+# --------------------------------------------------------------------------------- #
 # -------------------------------------------------------------------------------------
 @app.on_message(filters.command(["tgm" , "telegraph"]))
 def ul(_, message):
