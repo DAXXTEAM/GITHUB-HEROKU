@@ -4,6 +4,7 @@ from daxxop import daxxop as app
 from config import BOT_USERNAME
 from config import OWNER_ID
 import config
+from pyrogram.types import InputMediaVideo
 import random 
 from pyrogram.types import Message
 
