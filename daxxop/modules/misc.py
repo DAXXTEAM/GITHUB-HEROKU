@@ -107,10 +107,13 @@ async def welcome(_, m: Message):
     random_wel_gif = random.choice(WEL_GIFS)
     join_date = datetime.utcfromtimestamp(m.date.timestamp()).strftime('%Y-%m-%d')
     
-    await m.reply_animation(
+    welcome_message = await m.reply_animation(
         random_wel_gif,
         caption=f"Hɪɪ ᴅᴇᴀʀ {m.from_user.mention}\nᴡᴇʟᴄᴏᴍᴇ ᴛᴏ {m.chat.title}!\n• Jᴏɪɴᴇᴅ ᴀᴛ: {join_date}\n┏━━━━━━━━━━━━━━━━━━━━┓\n• ꜰᴏʟʟᴏᴡ ᴏᴜʀ ʀᴜʟᴇꜱ ᴘʟᴇᴀꜱᴇ✨\n\n╚»『ᴅᴏɴ'ᴛ ᴜᴘʟᴏᴀᴅ 18+ ᴍᴀᴛᴇʀɪᴀʟ\n╚»『 ꜱᴘᴀᴍᴍɪɴɢ & ꜰɪɪɢʜᴛ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ✨\n╚»『 ᴏᴡɴᴇʀ - ꜱᴇᴄʀᴇᴛ\n╚»『 ɢɪʀʟꜱ ᴅᴍ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ\n╚» ᴏᴛʜᴇʀᴇ ᴡɪsᴇ ʏᴏᴜ ᴡɪʟʟ ɴᴇ ʙᴀɴᴇᴅ\n╚»『 ᴇɴᴊᴏʏ ᴏᴜʀ ɢʀᴏᴜᴘ\n┗━━━━━━━━━━━━━━━━━━━━",
     )
+
+    # Use the message ID of the welcome message for replies in the future
+    app.set_my_commands(welcome_message.message_id)
 
 @app.on_message(filters.left_chat_member)
 async def member_has_left(_, m: Message):
@@ -120,4 +123,3 @@ async def member_has_left(_, m: Message):
         caption=f"Sᴀᴅ Tᴏ Sᴇᴇ Yᴏᴜ Lᴇᴀᴠɪɴɢ {m.from_user.mention}\nTᴀᴋᴇ Cᴀʀᴇ!\n",
         reply_markup=create_close_button()
     )
-    
