@@ -49,6 +49,7 @@ async def start(_, msg):
 
 
 #➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪
+
 @app.on_callback_query()
 def callback_query_handler(client, query):
     if query.data == 'help':
@@ -62,8 +63,23 @@ def callback_query_handler(client, query):
             "/add_collaborator - Add a collaborator to a GitHub repository\n"
             "/remove_collaborator - Remove a collaborator from a GitHub repository"
         )
-        query.message.edit_text(help_text)
+
         
+        buttons = [
+            [
+                InlineKeyboardButton("Close", callback_data="close_data")
+            ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+
+        
+        query.message.edit_text(help_text, reply_markup=reply_markup)
+
+# Additional callback for closing the message
+@app.on_callback_query(filters.regex("^close_data"))
+async def close_callback(_, query):
+    chat_id = query.message.chat.id
+    await query.message.delete()
 # incoming msg
 
 @app.on_message(filters.private & filters.incoming)
