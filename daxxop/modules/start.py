@@ -36,7 +36,8 @@ async def start(_, msg):
           InlineKeyboardButton("ᴅᴇᴠ", url="https://t.me/iam_daxx")
         ],
         [
-          InlineKeyboardButton("ʜᴇʟᴘ", callback_data="help")
+          InlineKeyboardButton("GitHub", callback_data="githelp"),
+          InlineKeyboardButton("Heroku", callback_data="herokuhelp")
         ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -55,8 +56,8 @@ async def start(_, msg):
 
 @app.on_callback_query()
 def callback_query_handler(client, query):
-    if query.data == 'help':
-        help_text = (
+    if query.data == 'githelp':
+        ghelp_text = (
             "GitHub Control Bot Commands:\n"
             "/start - Start the bot\n"
             "/help - Display this help message\n"
@@ -76,7 +77,7 @@ def callback_query_handler(client, query):
         reply_markup = InlineKeyboardMarkup(buttons)
 
         
-        query.message.edit_text(help_text, reply_markup=reply_markup)
+        query.message.edit_text(ghelp_text, reply_markup=reply_markup)
 
 # Additional callback for closing the message
 @app.on_callback_query(filters.regex("^close_data"))
