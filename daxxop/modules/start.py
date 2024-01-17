@@ -80,19 +80,6 @@ def callback_query_handler(client, query):
         query.message.edit_text(ghelp_text, reply_markup=reply_markup)
 
 #----------------------------------------------------------------------------------------------
-@app.on_callback_query()
-def callback_query_handler(client, query):
-    if query.data == 'repo_data':
-    user_id = callback_query.from_user.id
-    
-    video_file = "https://graph.org/file/52b2315b843584a3c4532.mp4"
-
-    
-    client.send_video(
-        chat_id=user_id,
-        video=video_file,
-        reply_to_message_id=callback_query.message.message_id
-    )
 #--------------------------------------------------
 
 
