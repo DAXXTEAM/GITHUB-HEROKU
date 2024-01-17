@@ -21,10 +21,24 @@ def ul(_, message):
             url = "https://graph.org" + x
 
         i.edit(f'Yᴏᴜʀ ʟɪɴᴋ sᴜᴄᴄᴇssғᴜʟ Gᴇɴ {url}')
-
+#--------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------
-# --------------------------------------------------------------------------------- #
+@app.on_message(filters.command("table"))
+def multiplication_table(_, message: Message):
+    try:
+        
+        number = int(message.text.split()[1])
 
+        table = "\n".join([f"{number} x {i} = {number * i}" for i in range(1, 11)])
+
+        
+        message.reply_text(f"Multiplication table of {number}:\n\n{table}")
+    except IndexError:
+        message.reply_text("Please enter a valid number after the command /table.")
+    except ValueError:
+        message.reply_text("Invalid input. Please enter a valid number.")
+# --------------------------------------------------------------------------------- #
+#--------------------------------------------------------------------------
 @app.on_message(filters.command("id"))
 def get_user_chat_id(_: Client, message: Message):
     user_id = message.from_user.id
