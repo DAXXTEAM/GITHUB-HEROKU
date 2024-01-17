@@ -36,8 +36,8 @@ async def start(_, msg):
           InlineKeyboardButton("ᴅᴇᴠ", url="https://t.me/iam_daxx")
         ],
         [
-          InlineKeyboardButton("GitHub", callback_data="githelp"),
-          InlineKeyboardButton("Heroku", callback_data="heroku_data")
+          InlineKeyboardButton("ʜᴇʟᴘ", callback_data="githelp"),
+          InlineKeyboardButton("ʀᴇᴘᴏ", callback_data="repo_data")
         ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -80,30 +80,6 @@ def callback_query_handler(client, query):
         query.message.edit_text(ghelp_text, reply_markup=reply_markup)
 
 #----------------------------------------------------------------------------------------------
-@app.on_callback_query()
-def callback_query_handler(client, query):
-    if query.data == 'heroku_data':
-        hhelp_text = (
-            "heroku Control Bot Commands:\n"
-            "/start - Start the bot\n"
-            "/help - Display this help message\n"
-            "/allrepo - List your GitHub repositories\n"
-            "/create_repo - Create a new GitHub repository\n"
-            "/delrepo - Delete a GitHub repository\n"
-            "/add_collaborator - Add a collaborator to a GitHub repository\n"
-            "/remove_collaborator - Remove a collaborator from a GitHub repository"
-        )
-
-        
-        buttons = [
-            [
-                InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close_data")
-            ]
-        ]
-        reply_markup = InlineKeyboardMarkup(buttons)
-
-        
-        query.message.edit_text(hhelp_text, reply_markup=reply_markup)
 
 #--------------------------------------------------
 
