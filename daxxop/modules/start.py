@@ -43,28 +43,15 @@ async def start(_, msg):
     reply_markup = InlineKeyboardMarkup(buttons)
     
     await msg.reply_photo(
-        photo="https://graph.org/file/ecbeac5889f9542f32469.jpg",
+        photo="https://graph.org/file/5ce2debfa805504339c86.mp4",
         caption=start_txt,
         reply_markup=reply_markup
     )
 
 
 
-#➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪#➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪#➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪
-@app.on_callback_query(filters.regex(r'^repo_callback'))
-def handle_repo_callback(client, callback_query):
-    user_id = callback_query.from_user.id
-    video_file = "https://graph.org/file/52b2315b843584a3c4532.mp4"
-
-    try:
-        client.send_video(
-            chat_id=user_id,
-            video=video_file,
-            reply_to_message_id=callback_query.message.message_id
-        )
-    except Exception as e:
-        print(f"Error sending video: {e}")
-#➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪
+#➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪#➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪
+#➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪
 
 @app.on_callback_query()
 def callback_query_handler(client, query):
