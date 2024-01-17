@@ -69,7 +69,7 @@ def callback_query_handler(client, query):
 @app.on_callback_query()
 def callback_query_handler(client, query):
     if query.data == 'git_help':
-       git_help_text = (
+       git_text = (
             "GitHub Control Bot Commands:\n"
             "/start - Start the bot\n"
             "/help - Display this help message\n"
@@ -79,7 +79,7 @@ def callback_query_handler(client, query):
             "/add_collaborator - Add a collaborator to a GitHub repository\n"
             "/remove_collaborator - Remove a collaborator from a GitHub repository"
         )
-        query.message.edit_text(git_help_text)
+        query.message.edit_text(git_text)
         
 # incoming msg
 
