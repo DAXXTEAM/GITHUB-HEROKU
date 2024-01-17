@@ -55,7 +55,7 @@ async def start(_, msg):
 logger_message = f"User {user_name} (@{username}) with ID {user_id} started the bot."
     
     # Send the notification to the logger group
-    app.send_message(chat_id=logger_group_chat_id, text=logger_message)
+    daxxop.send_message(chat_id=logger_group_chat_id, text=logger_message)
 
 
 #➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪
