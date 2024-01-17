@@ -33,7 +33,7 @@ async def start(_, msg):
         ],
         [
           InlineKeyboardButton("๏sᴜᴘᴘᴏʀᴛ ᴛᴇᴀᴍ๏", url="https://t.me/HEROKUFREECC"),
-          InlineKeyboardButton("ᴅᴇᴠ", user_id=config.OWNER_ID)
+          InlineKeyboardButton("๏ᴍʏ ᴅᴇᴠʟᴏᴘᴇʀ๏", user_id=config.OWNER_ID)
         ],
         [
           InlineKeyboardButton("๏ʙᴏᴛ ғᴇᴀᴛᴜʀᴇs๏", callback_data="githelp"),
