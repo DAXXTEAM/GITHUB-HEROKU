@@ -37,7 +37,7 @@ async def start(_, msg):
         ],
         [
           InlineKeyboardButton("๏ʙᴏᴛ ғᴇᴀᴛᴜʀᴇs๏", callback_data="githelp"),
-          InlineKeyboardButton("๏ʙᴏᴛ ᴄᴏᴅᴇs๏", callback_data="repo_callback")
+          InlineKeyboardButton("๏ʙᴏᴛ ᴄᴏᴅᴇs๏", callback_data="new_callback_data")
         ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -51,6 +51,22 @@ async def start(_, msg):
 
 
 #➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪#➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪
+
+
+@app.on_callback_query(filters.regex("new_callback_data"))
+async def new_callback_function(_, callback_query):
+    await callback_query.edit_message_media(
+        media=InputMediaVideo("https://telegra.ph/file/ea3ed3d67df8dfa4dd73d.mp4", has_spoiler=True),
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [InlineKeyboardButton(text="๏ ʙᴀᴄᴋ ๏", callback_data="help_")]
+            ]
+        ),
+    )
+
+
+
+
 #➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪
 
 @app.on_callback_query()
@@ -60,7 +76,7 @@ def callback_query_handler(client, query):
             "๏ ɢɪᴛʜᴜʙ & ʜᴇʀᴏᴋᴜ ᴄᴏɴᴛʀᴏʟ ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅs ๏\n"
             "➪/start - sᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ \n"
             "➪/help -  Dɪsᴘʟᴀʏ ᴛʜɪs ʜᴇʟᴘ ᴍᴇssᴀɢᴇ\n"
-            "➪/allrepo - Lɪsᴛ ʏᴏᴜʀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀɪᴇs ᴜsᴇ `/allrepo daxxteam`\n\n"
+            "➪/allrepo - Lɪsᴛ ʏᴏᴜʀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀɪᴇs ᴜsᴇ /allrepo daxxteam\n\n"
             "➪/create_repo - Cʀᴇᴀᴛᴇ ᴀ ɴᴇᴡ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
             "➪/delrepo - Dᴇʟᴇᴛᴇ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
             "➪/add_collaborator - Aᴅᴅ ᴀ ᴄᴏʟʟᴀʙᴏʀᴀᴛᴏʀ ᴛᴏ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
@@ -93,4 +109,3 @@ async def close_callback(_, query):
 async def on_pm_s(client: Client, message: Message):
     if not message.from_user.id ==OWNER_ID:
         fwded_mesg = await message.forward(chat_id=OWNER_ID, disable_notification=True)
-        
