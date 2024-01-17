@@ -79,6 +79,30 @@ def callback_query_handler(client, query):
         
         query.message.edit_text(ghelp_text, reply_markup=reply_markup)
 
+#----------------------------------------------------------------------------------------------
+@app.on_callback_query()
+def callback_query_handler(client, query):
+    if query.data == 'herokuhelp':
+        hhelp_text = (
+            "heroku Control Bot Commands:\n"
+            "/start - Start the bot\n"
+            
+        )
+
+        
+        buttons = [
+            [
+                InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close_data")
+            ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+
+        
+        query.message.edit_text(hhelp_text, reply_markup=reply_markup)
+
+#--------------------------------------------------
+
+
 # Additional callback for closing the message
 @app.on_callback_query(filters.regex("^close_data"))
 async def close_callback(_, query):
