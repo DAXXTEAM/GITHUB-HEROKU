@@ -36,7 +36,7 @@ async def start(_, msg):
           InlineKeyboardButton("๏ᴍʏ ᴅᴇᴠʟᴏᴘᴇʀ๏", user_id=config.OWNER_ID)
         ],
         [
-          InlineKeyboardButton("๏ʙᴏᴛ ғᴇᴀᴛᴜʀᴇs๏", callback_data="githelp"),
+          InlineKeyboardButton("๏ʙᴏᴛ ғᴇᴀᴛᴜʀᴇs๏", callback_data="button"),
           InlineKeyboardButton("๏ʙᴏᴛ ᴄᴏᴅᴇs๏", callback_data="new_callback_data")
         ]]
     
@@ -67,7 +67,33 @@ async def help_command(client, message):
 
     await message.reply_text(caption, reply_markup=keyboard)
 
-#------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------#
+
+@app.on_callback_query()
+def callback_query_handler(client, query):
+    if query.data == 'button':
+    buttons = [
+        [ 
+          InlineKeyboardButton("๏ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ๏", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+        ],
+        [
+          InlineKeyboardButton("๏sᴜᴘᴘᴏʀᴛ ᴛᴇᴀᴍ๏", url="https://t.me/HEROKUFREECC"),
+          InlineKeyboardButton("๏ᴍʏ ᴅᴇᴠʟᴏᴘᴇʀ๏", user_id=config.OWNER_ID)
+        ],
+        [
+          InlineKeyboardButton("๏ʙᴏᴛ ғᴇᴀᴛᴜʀᴇs๏", callback_data="githelp"),
+          InlineKeyboardButton("๏ʙᴏᴛ ᴄᴏᴅᴇs๏", callback_data="new_callback_data")
+        ]]
+    
+    reply_markup = InlineKeyboardMarkup(buttons)
+    
+    await msg.reply_photo(
+        photo="https://graph.org/file/726169835ed7cdfd5ccf4.jpg",
+        caption=start_txt,
+        reply_markup=reply_markup
+    )
+
+
 #------------------------------------------------------------------------------------
 
 @app.on_callback_query(filters.regex("new_callback_data"))
