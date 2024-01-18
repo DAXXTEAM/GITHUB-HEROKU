@@ -1,6 +1,7 @@
 import os
 import time
 import requests
+from pyrogram.types import Message
 from pyrogram import Client, filters
 from heroku3 import from_key
 from daxxop import daxxop as app
