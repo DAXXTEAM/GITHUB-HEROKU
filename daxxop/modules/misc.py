@@ -10,6 +10,26 @@ from daxxop import daxxop as app
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
 
 
+
+#--------------
+
+async def delete_links(message):
+    if any(link in message.text for link in ["http", "https", "www."]):
+        await message.delete()
+
+@app.on_message(filters.group & filters.text & ~filters.me)
+async def handle_messages(client, message):
+    await delete_links(message)
+
+@app.on_edited_message(filters.group & filters.text & ~filters.me)
+async def handle_edited_messages(client, edited_message):
+    await delete_links(edited_message)
+
+# Add this handler to delete group admin messages
+@app.on_message(filters.group & filters.text & filters.user(app.me.id) & ~filters.me)
+async def delete_admin_messages(client, message):
+    await delete_links(message)
+       
 # -------------------------------------------------------------------------------------
 
 @app.on_message(filters.video_chat_started)
