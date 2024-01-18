@@ -56,7 +56,7 @@ async def start(_, msg):
 #------------------------------------------------------------------------------------
 @app.on_message(filters.command(["help"]) & filters.group)
 async def help_command(client, message):
-    start_button_link = f"https://t.me/GITHUBCONTROLROBOT?start=your_start_parameter"
+    start_button_link = f"https://t.me/{BOT_USERNAME}?start=your_start_parameter"
     caption = "๏ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ᴍʏ ʜᴇʟᴘ ᴍᴇɴᴜ ɪɴ ʏᴏᴜʀ ᴘᴍ "
 
     keyboard = InlineKeyboardMarkup(
