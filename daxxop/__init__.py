@@ -1,11 +1,10 @@
-import asyncio
-import logging
-import time
+import asyncio, config, logging, time
+ 
 from importlib import import_module
 from os import listdir, path
 from dotenv import load_dotenv
 from pyrogram import Client
-from config import API_ID, API_HASH, BOT_TOKEN
+
 
 
 
@@ -21,14 +20,12 @@ logging.basicConfig(
 )
 
 
-
 daxxop = Client(
-    ":daxxop:",
-    api_id=API_ID,
-    api_hash=API_HASH,
-    bot_token=BOT_TOKEN,
+    name=":daxxop:",
+    api_id=config.API_ID,
+    api_hash=config.API_HASH,
+    bot_token=config.BOT_TOKEN,
 )
-
 
 
 async def daxxop_bot():
@@ -41,6 +38,7 @@ async def daxxop_bot():
         BOT_NAME = getme.first_name + " " + getme.last_name
     else:
         BOT_NAME = getme.first_name
-
+    await daxxop.send_message(config.LOGGER_ID, "**Bot Started !**")
+         
 
 loop.run_until_complete(daxxop_bot())
