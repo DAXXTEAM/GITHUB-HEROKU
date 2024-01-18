@@ -80,11 +80,11 @@ async def get_heroku_info(_, message: Message):
             total_apps = len(app_info_list)
             
             info_text = (
-                f"⍟Mᴜʟᴛɪ-Fᴀᴄᴛᴏʀ Aᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ➪ {account_info['two_factor_authentication']}\n\n"
-                f"⍟Eᴍᴀɪʟ Aᴅᴅʀᴇss ➪ {account_info['email']}\n\n"
-                f"⍟Nᴀᴍᴇ ➪ {account_info['name']}\n\n\n"
-                f"⍟Tᴏᴛᴀʟ Aᴘᴘs➪ {total_apps}\n\n\n"
-                f"⍟Tᴏᴛᴀʟ Dʏɴᴏs ➪{total_dynos}\n\n\n"
+                f"⍟Mᴜʟᴛɪ-Fᴀᴄᴛᴏʀ Aᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ➪ {account_info['two_factor_authentication']}\n"
+                f"⍟Eᴍᴀɪʟ Aᴅᴅʀᴇss ➪ {account_info['email']}\n"
+                f"⍟Nᴀᴍᴇ ➪ {account_info['name']}\n"
+                f"⍟Tᴏᴛᴀʟ Aᴘᴘs➪ {total_apps}\n"
+                f"⍟Tᴏᴛᴀʟ Dʏɴᴏs ➪{total_dynos}\n"
             )
             
             for app_name, dynos_on, dyno_count in app_info_list:
