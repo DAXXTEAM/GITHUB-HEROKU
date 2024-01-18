@@ -41,6 +41,59 @@ async def heroku_logs_command(client, message):
         await message.reply_text(f"Error fetching Heroku logs: {str(e)}")
 
 
+
+#----------------
+@app.on_message(filters.command("herokuinfo") & filters.user(OWNER_ID))
+async def get_heroku_info(_, message: Message):
+    # Heroku API URL for account information
+    heroku_account_url = "https://api.heroku.com/account"
+
+    # Heroku API headers with API key
+    headers = {
+        "Accept": "application/vnd.heroku+json; version=3",
+        "Authorization": f"Bearer {heroku_api_key}",
+    }
+
+    try:
+        # Make the API request to retrieve account information
+        account_response = requests.get(heroku_account_url, headers=headers)
+
+        # Check if the request was successful
+        if account_response.status_code == 200:
+            account_info = account_response.json()
+            
+            # Get a list of all apps
+            heroku_conn = from_key(heroku_api_key)
+            apps = heroku_conn.apps()
+            
+            # Extract app names and dyno information
+            app_info_list = []
+            total_dynos = 0
+            for heroku_app in apps:
+                app_name = heroku_app.name
+                dynos_on = any(1 for dyno in heroku_app.dynos() if dyno.state == 'up')
+                dyno_count = len(list(heroku_app.dynos()))
+                total_dynos += dyno_count
+                app_info_list.append((app_name, dynos_on, dyno_count))
+            
+            total_apps = len(app_info_list)
+            
+            info_text = (
+                f"⍟Mᴜʟᴛɪ-Fᴀᴄᴛᴏʀ Aᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ➪ {account_info['two_factor_authentication']}\n\n"
+                f"⍟Eᴍᴀɪʟ Aᴅᴅʀᴇss ➪ {account_info['email']}\n\n"
+                f"⍟Nᴀᴍᴇ ➪ {account_info['name']}\n\n\n"
+                f"⍟Tᴏᴛᴀʟ Aᴘᴘs➪ {total_apps}\n\n\n"
+                f"⍟Tᴏᴛᴀʟ Dʏɴᴏs ➪{total_dynos}\n\n\n"
+            )
+            
+            for app_name, dynos_on, dyno_count in app_info_list:
+                info_text += f"\nApp: {app_name}, Dynos: {'On' if dynos_on else 'Off'}, Total Dynos: {dyno_count}"
+            
+            await message.reply_text(info_text)
+        else:
+            await message.reply_text(f"Error retrieving Heroku account information: {account_response.text}")
+    except Exception as e:
+        await message.reply_text(f"Error: {str(e)}")
 #----------------- ---------------------------------------------
 
 def delete_heroku_app(app_name):
