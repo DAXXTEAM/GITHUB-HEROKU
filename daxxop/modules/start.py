@@ -69,30 +69,32 @@ async def help_command(client, message):
 
 #------------------------------------------------------------------------------------#
 
+
+
 @app.on_callback_query(filters.regex("button"))
 async def new_callback_function(_, callback_query):
+    button_txt = "Your caption here"  # Replace with your caption
     buttons = [
         [ 
-          InlineKeyboardButton("๏ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ๏", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+            InlineKeyboardButton("๏ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ๏", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
         ],
         [
-          InlineKeyboardButton("๏sᴜᴘᴘᴏʀᴛ ᴛᴇᴀᴍ๏", url="https://t.me/HEROKUFREECC"),
-          InlineKeyboardButton("๏ᴍʏ ᴅᴇᴠʟᴏᴘᴇʀ๏", user_id=config.OWNER_ID)
+            InlineKeyboardButton("๏sᴜᴘᴘᴏʀᴛ ᴛᴇᴀᴍ๏", url="https://t.me/HEROKUFREECC"),
+            InlineKeyboardButton("๏ᴍʏ ᴅᴇᴠʟᴏᴘᴇʀ๏", url=f"")
         ],
         [
-          InlineKeyboardButton("๏ʙᴏᴛ ғᴇᴀᴛᴜʀᴇs๏", callback_data="githelp"),
-          InlineKeyboardButton("๏ʙᴏᴛ ᴄᴏᴅᴇs๏", callback_data="new_callback_data")
-        ]]
+            InlineKeyboardButton("๏ʙᴏᴛ ғᴇᴀᴛᴜʀᴇs๏", callback_data="githelp"),
+            InlineKeyboardButton("๏ʙᴏᴛ ᴄᴏᴅᴇs๏", callback_data="new_callback_data")
+        ]
+    ]
     
     reply_markup = InlineKeyboardMarkup(buttons)
     
-    await msg.reply_photo(
-        photo="https://graph.org/file/726169835ed7cdfd5ccf4.jpg",
-        caption=start_txt,
+    await callback_query.message.edit_caption(
+        caption=button_txt,
         reply_markup=reply_markup
     )
-
-
+    
 #------------------------------------------------------------------------------------
 
 @app.on_callback_query(filters.regex("new_callback_data"))
