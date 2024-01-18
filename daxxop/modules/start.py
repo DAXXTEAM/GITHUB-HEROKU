@@ -76,7 +76,7 @@ async def help_command(client, message):
 @app.on_callback_query(filters.regex("new_callback_data"))
 async def new_callback_function(_, callback_query):
     await callback_query.edit_message_media(
-        media=InputMediaVideo("https://telegra.ph/file/ea3ed3d67df8dfa4dd73d.mp4", has_spoiler=True),
+        media=InputMediaVideo("https://graph.org/file/8926caeb4948c47b12080.mp4", has_spoiler=True),
         reply_markup=InlineKeyboardMarkup(
             [
                 [InlineKeyboardButton(text="๏ ʙᴀᴄᴋ ๏", callback_data="githelp")]
