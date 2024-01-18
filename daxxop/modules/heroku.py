@@ -88,7 +88,7 @@ async def get_heroku_info(_, message: Message):
             )
             
             for app_name, dynos_on, dyno_count in app_info_list:
-                info_text += f"\nAᴘᴘ: {app_name}, \n Dʏɴᴏs: {'On' if dynos_on else 'Off'}, \n Tᴏᴛᴀʟ Dʏɴᴏs: {dyno_count}"
+                info_text += f"\n━━━━━━━━━━━━━━━━━━━━━━Aᴘᴘ: {app_name}, \n Dʏɴᴏs: {'On' if dynos_on else 'Off'}, \n Tᴏᴛᴀʟ Dʏɴᴏs: {dyno_count} ━━━━━━━━━━━━━━━━━━━━━━\n"
             
             await message.reply_text(info_text)
         else:
