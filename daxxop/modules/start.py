@@ -88,7 +88,6 @@ async def new_callback_function(_, callback_query):
 
 
 #------------------------------------------------------------------------------------
-
 @app.on_callback_query()
 def callback_query_handler(client, query):
     if query.data == 'githelp':
@@ -103,10 +102,7 @@ def callback_query_handler(client, query):
             "➪/remove_collaborator - Rᴇᴍᴏᴠᴇ ᴀ ᴄᴏʟʟᴀʙᴏʀᴀᴛᴏʀ ғʀᴏᴍ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ "
         )
 
-        # Replace "https://graph.org/file/abdd7a87b293fbe2f7bc3.jpg" with your actual image URL
-        image_url = "https://graph.org/file/abdd7a87b293fbe2f7bc3.jpg"
-        media_photo = InputMediaPhoto(image_url)
-
+        
         buttons = [
             [
                 InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close_data")
@@ -114,12 +110,8 @@ def callback_query_handler(client, query):
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
 
-        # Edit the message with media (photo) and text
-        query.message.edit_media(
-            media=media_photo,
-            caption=ghelp_text,
-            reply_markup=reply_markup
-        )
+        
+        query.message.edit_text(ghelp_text, reply_markup=reply_markup)
         
 #----------------------------------------------------------------------------------------------
 #--------------------------------------------------
