@@ -52,6 +52,23 @@ async def start(_, msg):
 
 #➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪#➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪
 
+#---------------------------------------------------------------
+#------------------------------------------------------------------------------------
+@app.on_message(filters.command(["help"]) & filters.group)
+async def help_command(client, message):
+    start_button_link = f"https://t.me/GITHUBCONTROLROBOT?start=your_start_parameter"
+    caption = "๏ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ᴍʏ ʜᴇʟᴘ ᴍᴇɴᴜ ɪɴ ʏᴏᴜʀ ᴘᴍ "
+
+    keyboard = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton("๏ʜᴇʟᴘ๏", url=start_button_link)],
+        ]
+    )
+
+    await message.reply_text(caption, reply_markup=keyboard)
+
+#------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------
 
 @app.on_callback_query(filters.regex("new_callback_data"))
 async def new_callback_function(_, callback_query):
@@ -67,7 +84,11 @@ async def new_callback_function(_, callback_query):
 
 
 
-#➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪
+
+#------------------------------------------------------------------------------------
+
+
+
 
 @app.on_callback_query()
 def callback_query_handler(client, query):
@@ -104,10 +125,10 @@ async def close_callback(_, query):
     chat_id = query.message.chat.id
     await query.message.delete()
 # incoming msg
-"""
+
 @app.on_message(filters.private & filters.incoming)
 async def on_pm_s(client: Client, message: Message):
     if not message.from_user.id ==OWNER_ID:
         fwded_mesg = await message.forward(chat_id=OWNER_ID, disable_notification=True)
 
-        """
+       
