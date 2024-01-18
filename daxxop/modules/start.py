@@ -36,7 +36,7 @@ async def start(_, msg):
           InlineKeyboardButton("๏ᴍʏ ᴅᴇᴠʟᴏᴘᴇʀ๏", user_id=config.OWNER_ID)
         ],
         [
-          InlineKeyboardButton("๏ʙᴏᴛ ғᴇᴀᴛᴜʀᴇs๏", callback_data="button"),
+          InlineKeyboardButton("๏ʙᴏᴛ ғᴇᴀᴛᴜʀᴇs๏", callback_data="githelp"),
           InlineKeyboardButton("๏ʙᴏᴛ ᴄᴏᴅᴇs๏", callback_data="new_callback_data")
         ]]
     
@@ -70,31 +70,6 @@ async def help_command(client, message):
 #------------------------------------------------------------------------------------#
 
 
-
-@app.on_callback_query(filters.regex("button"))
-async def new_callback_function(_, callback_query):
-    button_txt = "Your caption here"  # Replace with your caption
-    buttons = [
-        [ 
-            InlineKeyboardButton("๏ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ๏", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
-        ],
-        [
-            InlineKeyboardButton("๏sᴜᴘᴘᴏʀᴛ ᴛᴇᴀᴍ๏", url="https://t.me/HEROKUFREECC"),
-            InlineKeyboardButton("๏ᴍʏ ᴅᴇᴠʟᴏᴘᴇʀ๏", url=f"")
-        ],
-        [
-            InlineKeyboardButton("๏ʙᴏᴛ ғᴇᴀᴛᴜʀᴇs๏", callback_data="githelp"),
-            InlineKeyboardButton("๏ʙᴏᴛ ᴄᴏᴅᴇs๏", callback_data="new_callback_data")
-        ]
-    ]
-    
-    reply_markup = InlineKeyboardMarkup(buttons)
-    
-    await callback_query.message.edit_caption(
-        caption=button_txt,
-        reply_markup=reply_markup
-    )
-    
 #------------------------------------------------------------------------------------
 
 @app.on_callback_query(filters.regex("new_callback_data"))
@@ -114,9 +89,6 @@ async def new_callback_function(_, callback_query):
 
 #------------------------------------------------------------------------------------
 
-
-
-
 @app.on_callback_query()
 def callback_query_handler(client, query):
     if query.data == 'githelp':
@@ -131,7 +103,10 @@ def callback_query_handler(client, query):
             "➪/remove_collaborator - Rᴇᴍᴏᴠᴇ ᴀ ᴄᴏʟʟᴀʙᴏʀᴀᴛᴏʀ ғʀᴏᴍ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ "
         )
 
-        
+        # Replace "https://graph.org/file/abdd7a87b293fbe2f7bc3.jpg" with your actual image URL
+        image_url = "https://graph.org/file/abdd7a87b293fbe2f7bc3.jpg"
+        media_photo = InputMediaPhoto(image_url)
+
         buttons = [
             [
                 InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close_data")
@@ -139,9 +114,13 @@ def callback_query_handler(client, query):
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
 
+        # Edit the message with media (photo) and text
+        query.message.edit_media(
+            media=media_photo,
+            caption=ghelp_text,
+            reply_markup=reply_markup
+        )
         
-        query.message.edit_text(ghelp_text, reply_markup=reply_markup)
-
 #----------------------------------------------------------------------------------------------
 #--------------------------------------------------
 
