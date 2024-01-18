@@ -69,9 +69,8 @@ async def help_command(client, message):
 
 #------------------------------------------------------------------------------------#
 
-@app.on_callback_query()
-def callback_query_handler(client, query):
-    if query.data == 'button':
+@app.on_callback_query(filters.regex("button"))
+async def new_callback_function(_, callback_query):
     buttons = [
         [ 
           InlineKeyboardButton("๏ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ๏", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
