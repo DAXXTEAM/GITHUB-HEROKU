@@ -16,14 +16,6 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMedi
 
 # ----------------------
 
-@app.on_message(filters.group & filters.text & ~filters.me)
-async def delete_links(client, message):
-    forbidden_domains = ["http", "https", "www.", ".com", ".in"]
-
-    if not message.text.startswith("/") and any(domain in message.text for domain in forbidden_domains):
-        await message.delete()
-        
-
 # --------------------------------------------------------------------------------------------------------------
 # --------------------------------------------------------------------------------------------------------------
 def download_website(url):
