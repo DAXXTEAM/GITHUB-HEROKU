@@ -37,7 +37,7 @@ async def start(_, msg):
           InlineKeyboardButton("๏ᴍʏ ᴅᴇᴠʟᴏᴘᴇʀ๏", user_id=config.OWNER_ID)
         ],
         [
-          InlineKeyboardButton("๏ʙᴏᴛ ғᴇᴀᴛᴜʀᴇs๏", callback_data="help"),
+          InlineKeyboardButton("๏ʙᴏᴛ ғᴇᴀᴛᴜʀᴇs๏", callback_data="githelp"),
           InlineKeyboardButton("๏ʙᴏᴛ ᴄᴏᴅᴇs๏", callback_data="new_callback_data")
         ]]
     
@@ -79,7 +79,7 @@ async def new_callback_function(_, callback_query):
         media=InputMediaVideo("https://graph.org/file/8926caeb4948c47b12080.mp4", has_spoiler=True),
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton(text="๏ ʙᴀᴄᴋ ๏", callback_data="help")]
+                [InlineKeyboardButton(text="๏ ʙᴀᴄᴋ ๏", callback_data="githelp")]
             ]
         ),
     )
@@ -116,37 +116,6 @@ def callback_query_handler(client, query):
         
 #----------------------------------------------------------------------------------------------
 
-
-@app.on_callback_query()
-def callback_query_handler(client, query):
-    if query.data == 'help':
-        help_command(client, query.message)
-
-def help_command(client, message):
-    keyboard = [
-        [
-            InlineKeyboardButton("𝗚𝗜𝗧𝗛𝗨𝗕", callback_data="githelp"),
-            InlineKeyboardButton("𝗛𝗘𝗥𝗢𝗞𝗨", callback_data="btn2"),
-            InlineKeyboardButton("𝗔𝗜", callback_data="btn3"),
-        ],
-        [
-            InlineKeyboardButton("𝗚𝗥𝗢𝗨𝗣", callback_data="btn4"),
-            InlineKeyboardButton("𝗜𝗡𝗙𝗢", callback_data="btn5"),
-            InlineKeyboardButton("𝗗𝗘𝗩𝗘𝗟𝗢𝗣𝗘𝗥", callback_data="btn6"),
-        ],
-        [
-            InlineKeyboardButton("𝗪𝗘𝗕𝗦𝗜𝗧𝗘", callback_data="btn7"),
-            InlineKeyboardButton("𝗠𝗔𝗧𝗛𝗦", callback_data="btn8"),
-            InlineKeyboardButton("𝗧𝗚𝗠", callback_data="btn9"),
-        ],
-        [
-            InlineKeyboardButton("𝗣𝗬𝗣𝗜", callback_data="btn10"),
-        ]
-    ]
-
-    reply_markup = InlineKeyboardMarkup(keyboard)
-    message.reply_text("Help! Choose an option:", reply_markup=reply_markup)
-    
 #--------------------------------------------------
 
 
