@@ -1,7 +1,8 @@
 from pyrogram.types import Message
 import asyncio, os, time, aiohttp
 from telegraph import upload_file
-import random 
+import random
+import requests
 from config import OWNER_ID
 import config
 from datetime import datetime
