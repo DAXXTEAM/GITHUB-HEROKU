@@ -14,7 +14,7 @@ heroku_api_key = 'ccb94c02-9e60-4605-97b1-3977084781a8'
 # ----------------------- ------# ----------------------- ------
 # ----------------
 
- Function to add collaboration
+ #Function to add collaboration
 def add_collaboration(app_name, email):
     heroku_conn = from_key(heroku_api_key)
     
