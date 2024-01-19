@@ -12,7 +12,63 @@ from config import OWNER_ID
 heroku_api_key = 'ccb94c02-9e60-4605-97b1-3977084781a8'
 
 # ----------------------- ------# ----------------------- ------
+# ----------------
 
+ Function to add collaboration
+def add_collaboration(app_name, email):
+    heroku_conn = from_key(heroku_api_key)
+    
+    if not heroku_conn.apps().get(app_name):
+        return f"App '{app_name}' not found on Heroku."
+    
+    app_instance = heroku_conn.apps()[app_name]
+    
+    try:
+        collaborator = app_instance.add_collaborator(email)
+        return f"Collaboration added for app '{app_name}' with email '{email}'."
+    except Exception as e:
+        return f"Error adding collaboration: {str(e)}"
+
+# Function to remove collaboration
+def remove_collaboration(app_name, email):
+    heroku_conn = from_key(heroku_api_key)
+    
+    if not heroku_conn.apps().get(app_name):
+        return f"App '{app_name}' not found on Heroku."
+    
+    app_instance = heroku_conn.apps()[app_name]
+    
+    try:
+        collaborator = app_instance.remove_collaborator(email)
+        return f"Collaboration removed for app '{app_name}' with email '{email}'."
+    except Exception as e:
+        return f"Error removing collaboration: {str(e)}"
+
+# Command to add collaboration
+@app.on_message(filters.command("addapp") & filters.user(OWNER_ID))
+async def add_collaboration_command(client, message):
+    try:
+        _, app_name, email = message.text.split(" ", 2)
+        response = add_collaboration(app_name, email)
+        await message.reply_text(response)
+    except ValueError:
+        await message.reply_text("Invalid command format. Use /addapp <app_name> <email>")
+    except Exception as e:
+        await message.reply_text(f"Error: {str(e)}")
+
+# Command to remove collaboration
+@app.on_message(filters.command("removeapp") & filters.user(OWNER_ID))
+async def remove_collaboration_command(client, message):
+    try:
+        _, app_name, email = message.text.split(" ", 2)
+        response = remove_collaboration(app_name, email)
+        await message.reply_text(response)
+    except ValueError:
+        await message.reply_text("Invalid command format. Use /removeapp <app_name> <email>")
+    except Exception as e:
+        await message.reply_text(f"Error: {str(e)}")
+
+#---------------
 def get_heroku_logs(app_name):
     heroku_conn = from_key(heroku_api_key)
 
