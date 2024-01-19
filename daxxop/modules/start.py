@@ -115,7 +115,10 @@ def callback_query_handler(client, query):
         query.message.edit_text(ghelp_text, reply_markup=reply_markup)
         
 #----------------------------------------------------------------------------------------------
-@app.on_message(filters.command("help"))
+#@app.on_message(filters.command("help"))
+@app.on_callback_query()
+def callback_query_handler(client, query):
+    if query.data == 'help':
 def help_command(client, message):
     keyboard = [
         [
@@ -141,15 +144,6 @@ def help_command(client, message):
     reply_markup = InlineKeyboardMarkup(keyboard)
     message.reply_text("Help! Choose an option:", reply_markup=reply_markup)
     
-@app.on_callback_query()
-def button_click(client, callback_query):
-    data = callback_query.data
-    message = callback_query.message
-    # Handle button clicks based on the callback_data
-    # You can customize this part based on your requirements
-    message.edit_text(f"You clicked on {data}")
-            
-
 #--------------------------------------------------
 
 
