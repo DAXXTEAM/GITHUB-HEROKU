@@ -41,10 +41,10 @@ def pypi_info_command(client, message):
         
         if pypi_info:
             
-            info_message = f"ᴘᴀᴄᴋᴀɢᴇ ɴᴀᴍᴇ ➪ {pypi_info['info']['name']}\n" \
-                           f"Lᴀᴛᴇsᴛ ᴠɪʀsɪᴏɴ➪ {pypi_info['info']['version']}\n" \
-                           f"Dᴇsᴄʀɪᴘᴛɪᴏɴ➪ {pypi_info['info']['summary']}\n" \
-                           f"ᴘʀᴏJᴇᴄᴛ ᴜʀʟ➪ {pypi_info['info']['project_urls']['Homepage']}"
+            info_message = f"๏ ᴘᴀᴄᴋᴀɢᴇ ɴᴀᴍᴇ ➪ {pypi_info['info']['name']}\n━━━━━━━━━━━━━━━━━━━━━" \
+                           f"๏ Lᴀᴛᴇsᴛ ᴠɪʀsɪᴏɴ➪ {pypi_info['info']['version']}\n━━━━━━━━━━━━━━━━━━━━━" \
+                           f"๏ Dᴇsᴄʀɪᴘᴛɪᴏɴ➪ {pypi_info['info']['summary']}\n━━━━━━━━━━━━━━━━━━━━━" \
+                           f"๏ ᴘʀᴏJᴇᴄᴛ ᴜʀʟ➪ {pypi_info['info']['project_urls']['Homepage']}"
             
             
             client.send_message(message.chat.id, info_message)
