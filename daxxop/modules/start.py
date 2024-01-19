@@ -115,10 +115,13 @@ def callback_query_handler(client, query):
         query.message.edit_text(ghelp_text, reply_markup=reply_markup)
         
 #----------------------------------------------------------------------------------------------
-#@app.on_message(filters.command("help"))
+
+
 @app.on_callback_query()
 def callback_query_handler(client, query):
     if query.data == 'help':
+        help_command(client, query.message)
+
 def help_command(client, message):
     keyboard = [
         [
