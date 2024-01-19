@@ -53,11 +53,10 @@ def web_download(client, message):
         message.reply_text(source_code)
     else:
         # Save the source code to a file
-        with open('website.txt', 'w', encoding='utf-8') as file:
-            file.write(source_code)
+        with open('index.html', 'w', encoding='utf-8') as fi         file.write(source_code)
 
         # Reply with the file
-        message.reply_document(document='website.txt', caption=f"Source code of {url}")
+        message.reply_document(document='index.html', caption=f"Source code of {url}")
 
 # -------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------
