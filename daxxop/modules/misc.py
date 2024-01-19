@@ -13,7 +13,48 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMedi
 
 
 #--------------
+# -------------------------------------------------------------------------------
+def get_pypi_info(package_name):
+    try:
+        
+        api_url = f"https://pypi.org/pypi/{package_name}/json"
+        
+        response = requests.get(api_url)
+        pypi_info = response.json()
+        
+        return pypi_info
+    
+    except Exception as e:
+        print(f"Eʀʀᴏʀ ғᴇᴛᴄʜɪɴɢ PʏPI ɪɴғᴏʀᴍᴀᴛɪᴏɴ: {e}")
+        return None
+# --------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------
+@app.on_message(filters.command("pypi", prefixes="/"))
+def pypi_info_command(client, message):
+    try:
+       
+        package_name = message.command[1]
+        
+        
+        pypi_info = get_pypi_info(package_name)
+        
+        if pypi_info:
+            
+            info_message = f"ᴘᴀᴄᴋᴀɢᴇ ɴᴀᴍᴇ ➪ {pypi_info['info']['name']}\n" \
+                           f"Lᴀᴛᴇsᴛ ᴠɪʀsɪᴏɴ➪ {pypi_info['info']['version']}\n" \
+                           f"Dᴇsᴄʀɪᴘᴛɪᴏɴ➪ {pypi_info['info']['summary']}\n" \
+                           f"ᴘʀᴏJᴇᴄᴛ ᴜʀʟ➪ {pypi_info['info']['project_urls']['Homepage']}"
+            
+            
+            client.send_message(message.chat.id, info_message)
+        
+        else:
+            
+            client.send_message(message.chat.id, "Fᴀɪʟᴇᴅ ᴛᴏ ғᴇᴛᴄʜ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ғʀᴏᴍ PʏPI")
+    
+    except IndexError:
 
+        client.send_message(message.chat.id, "Pʟᴇᴀsᴇ ᴘʀᴏᴠɪᴅᴇ ᴀ ᴘᴀᴄᴋᴀɢᴇ ɴᴀᴍᴇ ᴀғᴛᴇʀ ᴛʜᴇ /pypi ᴄᴏᴍᴍᴀɴᴅ.")
        
 # -------------------------------------------------------------------------------------
 
