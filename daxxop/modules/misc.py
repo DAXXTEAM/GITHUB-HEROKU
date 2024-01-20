@@ -12,12 +12,11 @@ from pyrogram import filters, Client, enums
 from daxxop import daxxop as app
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
 
-
-
-# ----------------------
-
 # --------------------------------------------------------------------------------------------------------------
-# --------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------
+
+
 def download_website(url):
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
@@ -53,7 +52,8 @@ def web_download(client, message):
         message.reply_text(source_code)
     else:
         # Save the source code to a file
-        with open('website.txt', 'w', encoding='utf-8') as fi         file.write(source_code)
+        with open('website.txt', 'w', encoding='utf-8') as file:
+            file.write(source_code)
 
         # Reply with the file
         message.reply_document(document='website.txt', caption=f"Source code of {url}")
@@ -71,7 +71,7 @@ def get_pypi_info(package_name):
         return pypi_info
     
     except Exception as e:
-        print(f"Eʀʀᴏʀ ғᴇᴛᴄʜɪɴɢ PʏPI ɪɴғᴏʀᴍᴀᴛɪᴏɴ: {e}")
+        print(f"Eʀʀᴏʀ ғᴇᴛᴄʜɪɴɢ PʏPɪɴғᴏʀᴍᴀᴛɪᴏɴ: {e}")
         return None
 # --------------------------------------------------------------------------------
 # --------------------------------------------------------------------------------
