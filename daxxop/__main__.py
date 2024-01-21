@@ -26,6 +26,7 @@ if __name__ == "__main__":
 
 import asyncio
 import importlib
+from daxxop import daxxop
 from pyrogram import Client, idle
 from config import LOGGER_ID
 from daxxop.modules import ALL_MODULES
@@ -49,7 +50,7 @@ async def daxxpapa_boot(Client, start_in_logger_groups=False):
     print("»» ɢᴏᴏᴅ ʙʏᴇ ! sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ.")
 
 if __name__ == "__main__":
-    loop.run_until_complete(Client.start())
+    loop.run_until_complete(daxxop.start())
     loop.run_until_complete(daxxpapa_boot(Client, start_in_logger_groups=True))
-    loop.run_until_complete(Client.stop())
+    loop.run_until_complete(daxxop.stop())
     
