@@ -1,5 +1,6 @@
 import asyncio
 import importlib
+from config import LOGGER_ID
 from pyrogram import idle
 from daxxop import daxxop
 from daxxop.modules import ALL_MODULES
@@ -15,7 +16,8 @@ async def daxxpapa_boot():
     print("»»»» ʙᴏᴛ ᴅᴇᴘʟᴏʏ sᴜᴄᴄᴇssғᴜʟʟʏ. ✨ 🎉")
     await idle()
     print("»» ɢᴏᴏᴅ ʙʏᴇ ! sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ.")
-
-
+ # --------
+await daxxop.send_message(config.LOGGER_ID, "**Bot Started !**")
+# -------------
 if __name__ == "__main__":
     loop.run_until_complete(daxxpapa_boot())
