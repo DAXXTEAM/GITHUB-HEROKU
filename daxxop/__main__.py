@@ -5,6 +5,9 @@ from pyrogram import idle
 from daxxop import daxxop
 from daxxop.modules import ALL_MODULES
 
+LOGGER_ID = -1001802990747
+
+
 loop = asyncio.get_event_loop()
 
 async def daxxpapa_boot():
