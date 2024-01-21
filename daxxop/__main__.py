@@ -1,12 +1,10 @@
 import asyncio
 import importlib
-import config
-from config import LOGGER_ID
 from pyrogram import idle
 from daxxop import daxxop
 from daxxop.modules import ALL_MODULES
 
-LOGGER_ID = config.LOGGER_ID
+LOGGER_ID = -1001802990747
 
 loop = asyncio.get_event_loop()
 
