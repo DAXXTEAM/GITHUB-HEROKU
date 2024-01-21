@@ -16,8 +16,8 @@ async def daxxpapa_boot():
     print("»»»» ʙᴏᴛ ᴅᴇᴘʟᴏʏ sᴜᴄᴄᴇssғᴜʟʟʏ. ✨ 🎉")
     await idle()
     print("»» ɢᴏᴏᴅ ʙʏᴇ ! sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ.")
- # --------
-await daxxop.send_message(config.LOGGER_ID, "**Bot Started !**")
-# -------------
+ 
 if __name__ == "__main__":
     loop.run_until_complete(daxxpapa_boot())
+    await daxxop.send_message(config.LOGGER_ID, "**Bot Started !**")
+ 
