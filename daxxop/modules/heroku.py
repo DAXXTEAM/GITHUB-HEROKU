@@ -5,18 +5,18 @@ from pyrogram.types import Message
 from pyrogram import Client, filters
 from heroku3 import from_key
 from daxxop import daxxop as app
-from config import OWNER_ID
+from config import OWNER_ID, HEROKU_API
 
 # ----------------------- ------# ----------------------- ------
 
-heroku_api_key = 'ccb94c02-9e60-4605-97b1-3977084781a8'
+HEROKU_API = 'ccb94c02-9e60-4605-97b1-3977084781a8'
 
 # ----------------------- ------# ----------------------- ------
 # ----------------
 
  #Function to add collaboration
 def add_collaboration(app_name, email):
-    heroku_conn = from_key(heroku_api_key)
+    heroku_conn = from_key(HEROKU_API)
     
     if not heroku_conn.apps().get(app_name):
         return f"App '{app_name}' not found on Heroku."
@@ -31,7 +31,7 @@ def add_collaboration(app_name, email):
 
 # Function to remove collaboration
 def remove_collaboration(app_name, email):
-    heroku_conn = from_key(heroku_api_key)
+    heroku_conn = from_key(HEROKU_API)
     
     if not heroku_conn.apps().get(app_name):
         return f"App '{app_name}' not found on Heroku."
@@ -70,7 +70,7 @@ async def remove_collaboration_command(client, message):
 
 #---------------
 def get_heroku_logs(app_name):
-    heroku_conn = from_key(heroku_api_key)
+    heroku_conn = from_key(HEROKU_API)
 
     if not heroku_conn.apps().get(app_name):
         return f"App '{app_name}' not found on Heroku."
@@ -108,7 +108,7 @@ async def get_heroku_info(_, message: Message):
     # Heroku API headers with API key
     headers = {
         "Accept": "application/vnd.heroku+json; version=3",
-        "Authorization": f"Bearer {heroku_api_key}",
+        "Authorization": f"Bearer {HEROKU_API}",
     }
 
     try:
@@ -120,7 +120,7 @@ async def get_heroku_info(_, message: Message):
             account_info = account_response.json()
             
             # Get a list of all apps
-            heroku_conn = from_key(heroku_api_key)
+            heroku_conn = from_key(HEROKU_API)
             apps = heroku_conn.apps()
             
             # Extract app names and dyno information
@@ -154,7 +154,7 @@ async def get_heroku_info(_, message: Message):
 #----------------- ---------------------------------------------
 
 def delete_heroku_app(app_name):
-    heroku_conn = from_key(heroku_api_key)
+    heroku_conn = from_key(HEROKU_API)
 
     if not heroku_conn.apps().get(app_name):
         return f"App '{app_name}' not found on Heroku."
@@ -180,7 +180,7 @@ async def delete_heroku_command(client, message):
 
 # ----------------------- ------# ----------------------- ------# ----------------------- ------# ----------------------- ------
 def get_heroku_variables(app_name):
-    heroku_conn = from_key(heroku_api_key)
+    heroku_conn = from_key(HEROKU_API)
 
     if not heroku_conn.apps().get(app_name):
         return f"App '{app_name}' not found on Heroku."
@@ -213,7 +213,7 @@ async def heroku_variables_command(client, message):
 # ----------------------# ----------------------# ----------------------
 
 def get_all_heroku_apps():
-    heroku_conn = from_key(heroku_api_key)
+    heroku_conn = from_key(HEROKU_API)
     
     # Get a list of all apps
     apps = heroku_conn.apps()
@@ -243,7 +243,7 @@ def restart_heroku_dynos(app_name):
 
     headers = {
         "Accept": "application/vnd.heroku+json; version=3",
-        "Authorization": f"Bearer {heroku_api_key}",
+        "Authorization": f"Bearer {HEROKU_API}",
     }
 
     # Restart all dynos by deleting them
