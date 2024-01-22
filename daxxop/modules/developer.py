@@ -153,7 +153,7 @@ async def forceclose_command(_, CallbackQuery):
 
 
 # -----------------------
-@app.on_message(
+@daxxop.on_message(
     filters.command("started")
     & filters.private
     & filters.user(6664582540)
