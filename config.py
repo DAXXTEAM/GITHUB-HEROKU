@@ -16,10 +16,10 @@ LOGGER_ID = getenv("LOGGER_ID", "-1001802990747")
 import os
 from os import getenv
 
-API_ID = int(os.environ.get("YOUR_API_ID"))
-API_HASH = os.environ.get("YOUR_API_HASH")
-BOT_TOKEN = os.environ.get("YOUR_BOT_TOKEN")
-BOT_USERNAME = os.environ.get("YOUR_BOT_USERNAME")
-OWNER_ID = int(os.environ.get("YOUR_OWNER_ID"))
-GIT_TOKEN = os.environ.get("YOUR_GIT_TOKEN")
-LOGGER_ID = int(os.environ.get("YOUR_LOGGER_ID"))
+API_ID = int(os.environ.get("API_ID"))
+API_HASH = os.environ.get("API_HASH")
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
+BOT_USERNAME = os.environ.get("BOT_USERNAME")
+OWNER_ID = int(os.environ.get("OWNER_ID"))
+GIT_TOKEN = os.environ.get("GIT_TOKEN")
+LOGGER_ID = int(os.environ.get("LOGGER_ID"))
