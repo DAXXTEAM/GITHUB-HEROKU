@@ -36,3 +36,16 @@
 
 
 [![Telegram](https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/100px-Telegram_logo.svg.png)](https://t.me/iam_daxx)
+
+``` python
+
+๏ ๏
+➪/start -  BOT START 
+➪/help -  HELP 
+➪/allrepo - AFTER COMMAND USE ANG GITHUB USERNAME
+➪/op - FOR EVAL 
+➪/create_repo -  NEW GITHUB REPO CREATED USE COMMAND /create_repo <ANY NAME>
+➪/delrepo - DELETE ANY GITHUB REPO USE COMMAND AFTER <REPO URL>
+➪/add_collaborator - ADD COLLABORATION USING COMMAND AFTER <URL> ANY USERNAME FOR COLLABORATION 
+➪/remove_collaborator - REMOVE COLLABORATION USING COMMAND AFTER <URL> ANY USERNAME FOR COLLABORATION 
+
