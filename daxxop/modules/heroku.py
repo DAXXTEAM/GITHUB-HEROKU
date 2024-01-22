@@ -10,7 +10,7 @@ from config import OWNER_ID, HEROKU_API
 
 # ----------------------- ------# ----------------------- ------
 
-HEROKU_API = config.HEROKH_API
+HEROKU_API = config.HEROKU_API
 
 # ----------------------- ------# ----------------------- ------
 # ----------------
