@@ -1,5 +1,5 @@
 {
-  "name": "github heroku bot",
+  "name": "github-heroku-bot",
   "description": "Telegram Bot using Pyrogram",
   "repository": "https://github.com/daxxteam/daxxop",
   "env": {
@@ -29,6 +29,10 @@
     },
     "LOGGER_ID": {
       "description": "Your Logger Chat ID",
+      "required": true
+    },
+    "HEROKU_API": {
+      "description": "Your Heroku API Key",
       "required": true
     }
   },
