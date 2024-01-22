@@ -7,9 +7,9 @@ from inspect import getfullargspec
 from io import StringIO
 from time import time
 from config import BOT_TOKEN, GIT_TOKEN, HEROKU_API
-from pyrogram import filters
+from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-
+from dotenv import load_dotenv
 from daxxop import daxxop
 from config import OWNER_ID
 
