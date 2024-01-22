@@ -5,7 +5,7 @@ from importlib import import_module
 from os import listdir, path
 from dotenv import load_dotenv
 from pyrogram import Client
-from config import API_ID, API_HASH, BOT_TOKEN
+from config import API_ID, API_HASH, BOT_TOKEN, BOT_USERNAME, OWNER_ID, GIT_TOKEN, LOGGER_ID
 
 
 
