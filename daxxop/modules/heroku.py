@@ -1,6 +1,7 @@
 import os
 import time
 import requests
+import config
 from pyrogram.types import Message
 from pyrogram import Client, filters
 from heroku3 import from_key
@@ -9,7 +10,7 @@ from config import OWNER_ID, HEROKU_API
 
 # ----------------------- ------# ----------------------- ------
 
-HEROKU_API = 'ccb94c02-9e60-4605-97b1-3977084781a8'
+HEROKU_API = config.HEROKH_API
 
 # ----------------------- ------# ----------------------- ------
 # ----------------
