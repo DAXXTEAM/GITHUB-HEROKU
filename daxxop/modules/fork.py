@@ -34,3 +34,30 @@ def fork_command(client, message):
         message.reply_text("Yᴏᴜʀ Rᴇᴘᴏ sᴜᴄᴄᴇssғᴜʟ ᴜᴘʟᴏᴀᴅ ᴄʜᴇᴄᴋ ʏᴏᴜʀ Gɪᴛʜᴜʙ!")
     else:
         message.reply_text("Fᴀɪʟᴇᴅ ᴛᴏ ғᴏʀᴋ ᴛʜᴇ ʀᴇᴘᴏsɪᴛᴏʀʏ. Pʟᴇᴀsᴇ ᴄʜᴇᴄᴋ ʏᴏᴜʀ ᴄʀᴇᴅᴇɴᴛɪᴀʟs ᴏʀ ᴛʜᴇ ʀᴇᴘᴏsɪᴛᴏʀʏ URL.")
+
+
+#-----------
+
+
+@app.on_message(filters.command("forkall") & filters.user(OWNER_ID))
+def fork_all_repositories(client, message):
+    try:
+        # Extract the GitHub username from the command
+        command_parts = message.text.split(" ")
+        if len(command_parts) == 2:
+            target_username = command_parts[1]
+
+            # Get the repositories of the target user
+            user = github.get_user(target_username)
+            repositories = user.get_repos()
+
+            # Fork each repository
+            for repo in repositories:
+                repo.create_fork()
+            
+            message.reply_text(f"Successfully forked all repositories of {target_username}.")
+        else:
+            message.reply_text("Invalid command. Please use /forkall <github_username>.")
+    except Exception as e:
+        message.reply_text(f"An error occurred: {str(e)}")
+        
