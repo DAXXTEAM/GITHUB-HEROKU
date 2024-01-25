@@ -2,7 +2,8 @@ import asyncio, os, time, aiohttp, random, requests
 from requests.adapters import HTTPAdapter, Retry
 from pyrogram.types import Message, ChatMemberUpdated, InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
 from telegraph import upload_file
-from config import OWNER_ID, config
+from config import OWNER_ID
+import config
 from datetime import datetime
 from pyrogram import filters, Client, enums
 from daxxop import daxxop as app
