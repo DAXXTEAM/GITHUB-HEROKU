@@ -103,7 +103,7 @@ def pypi_info_command(client, message):
         client.send_message(message.chat.id, "Pʟᴇᴀsᴇ ᴘʀᴏᴠɪᴅᴇ ᴀ ᴘᴀᴄᴋᴀɢᴇ ɴᴀᴍᴇ ᴀғᴛᴇʀ ᴛʜᴇ /pypi ᴄᴏᴍᴍᴀɴᴅ.")
        
 # -------------------------------------------------------------------------------------
-
+"""
 @app.on_message(filters.video_chat_started)
 async def brah(_, msg):
        await msg.reply("**ᴠᴏɪᴄᴇ ᴄʜᴀᴛ sᴛᴀʀᴛᴇᴅ🎤**")
@@ -111,6 +111,36 @@ async def brah(_, msg):
 @app.on_message(filters.video_chat_ended)
 async def brah2(_, msg):
        await msg.reply("**ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ᴇɴᴅᴇᴅ📴**")
+"""
+
+# _-----------
+
+async def send_notification(client, chat_id, text):
+    try:
+        await client.send_message(chat_id, text)
+    except Exception as e:
+        print(f"Error sending notification: {e}")
+
+@app.on_chat_member_updated(filters.group)
+async def voice_chat_notification(client, update: ChatMemberUpdated):
+    chat_id = update.chat.id
+    user_id = update.new_chat_member.user.id
+
+    if update.new_chat_member.voice_chat:
+        text = f"🎙️ Voice chat started! @{update.new_chat_member.user.username} is speaking."
+    elif update.old_chat_member and update.old_chat_member.voice_chat:
+        text = f"🔇 Voice chat ended. Thanks for joining, @{update.old_chat_member.user.username}!"
+    else:
+        return
+
+    # Notify all group members about the voice chat status change
+    members = await client.get_chat_members(chat_id)
+    for member in members:
+        if member.user.id != user_id:  # Avoid notifying the user who triggered the event
+            await send_notification(client, member.user.id, text)
+            
+
+
 
 # --------------------------------------------------------------------------------- #
 @app.on_message(filters.video_chat_members_invited)
