@@ -8,7 +8,7 @@ from config import OWNER_ID
 
 github_token = config.GIT_TOKEN
 
-#github = Github(github_token)
+github = Github(github_token)
 
 
 @app.on_message(filters.command("fork") & filters.user(OWNER_ID))
