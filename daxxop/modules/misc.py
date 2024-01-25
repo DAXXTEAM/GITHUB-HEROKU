@@ -1,6 +1,6 @@
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
-from pyrogram.types import Message
+from pyrogram.types import Message, ChatMemberUpdated
 import asyncio, os, time, aiohttp
 from telegraph import upload_file
 import random
