@@ -1,17 +1,13 @@
-import os
-import re
-import subprocess
-import sys
-import traceback
+import os, re, subprocess, sys, traceback
 from inspect import getfullargspec
 from io import StringIO
 from time import time
-from config import BOT_TOKEN, GIT_TOKEN, HEROKU_API
+from config import BOT_TOKEN, GIT_TOKEN, HEROKU_API, OWNER_ID
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from dotenv import load_dotenv
 from daxxop import daxxop
-from config import OWNER_ID
+
 
 
 async def aexec(code, client, message):
