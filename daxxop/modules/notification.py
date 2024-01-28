@@ -39,7 +39,7 @@ github_username = 'daxxteam'
 github_repo = 'daxxmusic'
 telegram_bot_token = config.BOT_TOKEN
 github_token = config.GIT_TOKEN
-telegram_chat_id = '@herokufreecc'
+telegram_chat_id = config.LOGGER_ID
 
 
 latest_commit_message = get_latest_commit(github_username, github_repo, github_token)
