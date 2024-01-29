@@ -8,7 +8,7 @@ def help_handler(client, message):
     
     buttons = [
         [
-            InlineKeyboardButton("Button 1", callback_data="button1"),
+            InlineKeyboardButton("๏ɢɪᴛʜᴜʙ๏", callback_data="githelp"),
             InlineKeyboardButton("Button 2", callback_data="button2"),
             InlineKeyboardButton("Button 3", callback_data="button3")
         ],
@@ -30,4 +30,31 @@ def help_handler(client, message):
     reply_markup = InlineKeyboardMarkup(buttons)
    
     message.reply_text(help_text, reply_markup=reply_markup)
-    
+
+
+
+@app.on_callback_query()
+def callback_query_handler(client, query):
+    if query.data == 'githelp':
+        ghelp_text = (
+            "๏ ɢɪᴛʜᴜʙ & ʜᴇʀᴏᴋᴜ ᴄᴏɴᴛʀᴏʟ ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅs ๏\n"
+            "➪/start - sᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ \n"
+            "➪/help -  Dɪsᴘʟᴀʏ ᴛʜɪs ʜᴇʟᴘ ᴍᴇssᴀɢᴇ\n"
+            "➪/allrepo - Lɪsᴛ ʏᴏᴜʀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀɪᴇs ᴜsᴇ /allrepo daxxteam\n\n"
+            "➪/create_repo - Cʀᴇᴀᴛᴇ ᴀ ɴᴇᴡ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
+            "➪/delrepo - Dᴇʟᴇᴛᴇ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
+            "➪/add_collaborator - Aᴅᴅ ᴀ ᴄᴏʟʟᴀʙᴏʀᴀᴛᴏʀ ᴛᴏ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
+            "➪/remove_collaborator - Rᴇᴍᴏᴠᴇ ᴀ ᴄᴏʟʟᴀʙᴏʀᴀᴛᴏʀ ғʀᴏᴍ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ "
+        )
+
+        
+        buttons = [
+            [
+                InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close_data")
+            ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+
+        
+        query.message.edit_text(ghelp_text, reply_markup=reply_markup)
+        
