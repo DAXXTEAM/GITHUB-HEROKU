@@ -11,6 +11,13 @@ async def close_callback(_, query):
     await query.message.delete()
 
 
+# -------------
+
+@app.on_callback_query(filters.regex("help"))
+def help_callback_handler(client, callback_query):
+    help_message = "This is the help message triggered by the Help button."
+    callback_query.message.edit_text(help_message)
+
 # ------------------------------------------------------------
 
 
@@ -60,7 +67,7 @@ def callback_query_handler(client, query):
         
         buttons = [
             [
-                InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close_data")
+                InlineKeyboardButton("๏ʙᴀᴄᴋ๏", callback_data="help")
             ]
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
