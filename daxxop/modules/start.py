@@ -86,9 +86,11 @@ async def help_handler(_, message):
     ]
   
     reply_markup = InlineKeyboardMarkup(buttons)
-   
-    await message.reply_text(help_text, reply_markup=reply_markup)
 
+    sticker_message = await message.reply_sticker(sticker=sticker_id)
+
+    await message.reply_text(help_text, reply_markup=reply_markup)
+    await sticker_message.delete()
 
 #------------------------------------------------------------------------------------
 @app.on_message(filters.command(["help"]) & filters.group)
