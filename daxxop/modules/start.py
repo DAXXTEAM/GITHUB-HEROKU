@@ -37,7 +37,7 @@ async def start(_, msg):
           InlineKeyboardButton("๏ᴍʏ ᴅᴇᴠʟᴏᴘᴇʀ๏", user_id=config.OWNER_ID)
         ],
         [
-          InlineKeyboardButton("๏ʙᴏᴛ ғᴇᴀᴛᴜʀᴇs๏", callback_data="_help"),
+          InlineKeyboardButton("๏ʙᴏᴛ ғᴇᴀᴛᴜʀᴇs๏", callback_data="settings_back_helper"),
           InlineKeyboardButton("๏ʙᴏᴛ ᴄᴏᴅᴇs๏", callback_data="new_callback_data")
         ]]
     
@@ -79,7 +79,7 @@ async def new_callback_function(_, callback_query):
         media=InputMediaVideo("https://graph.org/file/8926caeb4948c47b12080.mp4", has_spoiler=True),
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton(text="๏ ʙᴀᴄᴋ ๏", callback_data="_help")]
+                [InlineKeyboardButton(text="๏ ʙᴀᴄᴋ ๏", callback_data="settings_back_helper")]
             ]
         ),
     )
