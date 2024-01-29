@@ -113,6 +113,26 @@ async def callback_query_handler(_, query):
         chat_id = query.message.chat.id
         await query.message.delete()
     elif query.data == 'settings_back_helper':
+        buttons = [
+            [
+                InlineKeyboardButton("๏ɢɪᴛʜᴜʙ๏", callback_data="githelp"),
+                InlineKeyboardButton("๏ᴀɪ๏", callback_data="aihelp"),
+                InlineKeyboardButton("๏ʜᴇʀᴏᴋᴜ๏", callback_data="herokuhelp")
+            ],
+            [
+                InlineKeyboardButton("๏ᴛᴏᴏʟs๏", callback_data="toolhelp"),
+                InlineKeyboardButton("๏ɪɴғᴏ๏", callback_data="infohelp"),
+                InlineKeyboardButton("๏ᴅᴇᴠ ᴛᴏᴏʟs๏", callback_data="devhelp")
+            ],
+            [
+                InlineKeyboardButton("๏ʙᴀᴄᴋ๏", callback_data="backhelp")
+            ]
+        ]
+
+        help_text = """๏ᴄʜᴏᴏsᴇ ᴛʜᴇ ᴄᴀᴛᴇɢᴏʀʏ ғᴏʀ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴɴᴀ ɢᴇᴛ ʜᴇʟᴩ.
+        ᴀsᴋ ʏᴏᴜʀ ᴅᴏᴜʙᴛs ᴀᴛ sᴜᴘᴘᴏʀᴛ
+
+        ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ ๏: /"""
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.reply_text(help_text, reply_markup=reply_markup)
     elif query.data == 'new_callback_data':
