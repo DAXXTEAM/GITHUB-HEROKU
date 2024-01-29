@@ -12,6 +12,8 @@ import asyncio
 
 # ------------------------------------
 sticker_id = "CAACAgUAAx0CcmOuMwACFtFlt_PqlNHz9TeRS1Jak-CxUoL1bwACBAADwSQxMYnlHW4Ls8gQHgQ"
+sticker_id2 = "CAACAgUAAx0CcmOuMwACFyBlt_bJUeDPNFU3_tLd09oJVn8OxQACFQEAAsiUZBRmRDCipxVsEx4E"
+
 # ------------------------------------
 
 
@@ -99,7 +101,7 @@ async def help_command(_, message):
             [InlineKeyboardButton("๏ʜᴇʟᴘ๏", url=start_button_link)],
         ]
     )
-    sticker_message = await message.reply_sticker(sticker=sticker_id)
+    sticker_message = await message.reply_sticker(sticker=sticker_id2)
 
     await message.reply_text(caption, reply_markup=keyboard)
     await sticker_message.delete()
