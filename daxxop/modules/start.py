@@ -180,7 +180,7 @@ async def callback_query_handler(_, query):
             "๏ ɢɪᴛʜᴜʙ & ʜᴇʀᴏᴋᴜ ᴄᴏɴᴛʀᴏʟ ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅs ๏\n"
             "➪/start - sᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ \n"
             "➪/help -  Dɪsᴘʟᴀʏ ᴛʜɪs ʜᴇʟᴘ ᴍᴇssᴀɢᴇ\n"
-            "➪/allrepo - Lɪsᴛ ʏᴏᴜʀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀɪᴇs ᴜsᴇ /allrepo daxxteam\n\n"
+            "➪/allrepo - Lɪsᴛ ʏᴏᴜʀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀɪᴇs ᴜsᴇ /allrepo daxxteam\n"
             "➪/create_repo - Cʀᴇᴀᴛᴇ ᴀ ɴᴇᴡ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
             "➪/delrepo - Dᴇʟᴇᴛᴇ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
             "➪/add_collaborator - Aᴅᴅ ᴀ ᴄᴏʟʟᴀʙᴏʀᴀᴛᴏʀ ᴛᴏ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
@@ -198,9 +198,9 @@ async def callback_query_handler(_, query):
 
     elif query.data == 'aihelp':
         aihelp_text = (
-            "/assis - ChatGPT voice reply\n"
-            "/bingsearch - Bing search functionality\n"
-            "/chatgpt /ai /ask - Invoke ChatGPT for text-based interaction"              
+            "/assis - CʜᴀᴛGPT ᴠᴏɪᴄᴇ ʀᴇᴘʟʏ\n"
+            "/bingsearch - Bɪɴɢ sᴇᴀʀᴄʜ ғᴜɴᴄᴛɪᴏɴᴀʟɪᴛʏ\n"
+            "/chatgpt /ai /ask - Iɴᴠᴏᴋᴇ CʜᴀᴛGPT ғᴏʀ ᴛᴇxᴛ-ʙᴀsᴇᴅ ɪɴᴛᴇʀᴀᴄᴛɪᴏɴ"              
        )
         
         buttons = [
@@ -213,13 +213,13 @@ async def callback_query_handler(_, query):
 
     elif query.data == 'herokuhelp':
         herokuhelp_text = (
-            "/restartdynos - Restart dynos\n"
-            "/apps - List available applications\n"
-            "/veriable - Variable-related operations\n"
-            "/herokulogs - View Heroku logs\n"
-            "/herokuinfo - Get Heroku application info\n"
-            "/delheroku - Delete a Heroku application\n"
-            "/addapp - Add a new collaboration\n"                   
+            "/restartdynos - Rᴇsᴛᴀʀᴛ ᴅʏɴᴏs\n"
+            "/apps - Lɪsᴛ ᴀᴠᴀɪʟᴀʙʟᴇ ᴀᴘᴘʟɪᴄᴀᴛɪᴏɴs\n"
+            "/veriable - Vᴀʀɪᴀʙʟᴇ-ʀᴇʟᴀᴛᴇᴅ ᴏᴘᴇʀᴀᴛɪᴏɴs\n"
+            "/herokulogs - Vɪᴇᴡ Hᴇʀᴏᴋᴜ ʟᴏɢs\n"
+            "/herokuinfo - Gᴇᴛ Hᴇʀᴏᴋᴜ ᴀᴘᴘʟɪᴄᴀᴛɪᴏɴ ɪɴғᴏ\n"
+            "/delheroku - Dᴇʟᴇᴛᴇ ᴀ Hᴇʀᴏᴋᴜ ᴀᴘᴘʟɪᴄᴀᴛɪᴏɴ\n"
+            "/addapp - Aᴅᴅ ᴀ ɴᴇᴡ ᴄᴏʟʟᴀʙᴏʀᴀᴛɪᴏɴ\n"                   
         )
            
         buttons = [
@@ -232,8 +232,8 @@ async def callback_query_handler(_, query):
 
     elif query.data == 'toolhelp':
         toolhelp_text = (
-            "/table - Generate a table\n"
-            "/telegraph /tgm - telegram link generate\n"             
+            "/table - Gᴇɴᴇʀᴀᴛᴇ ᴀ ᴛᴀʙʟᴇ\n"
+            "/telegraph /tgm - ᴛᴇʟᴇɢʀᴀᴍ ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇ\n"             
         )
         
         buttons = [
