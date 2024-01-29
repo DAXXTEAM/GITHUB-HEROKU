@@ -3,7 +3,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from daxxop import daxxop as app
 from config import BOT_USERNAME, OWNER_ID 
 import config
-from pyrogram.types import InputMediaVideo, InputMediaPhoto
+from pyrogram.types import InputMediaVideo
 import random 
 from pyrogram.types import Message
 
@@ -163,11 +163,7 @@ async def callback_query_handler(_, query):
         ]
     
         reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_media(
-            media=InputMediaPhoto("https://graph.org/file/726169835ed7cdfd5ccf4.jpg"),
-            caption=start_txt,
-            reply_markup=reply_markup
-        )
+        await query.message.edit_text(caption=start_txt, reply_markup=reply_markup)
 
 
     elif query.data == 'new_callback_data':
@@ -199,3 +195,52 @@ async def callback_query_handler(_, query):
         reply_markup = InlineKeyboardMarkup(buttons)
         
         await query.message.edit_text(ghelp_text, reply_markup=reply_markup)
+
+    elif query.data == 'aihelp':
+        aihelp_text = (
+              "/assis - ChatGPT voice reply"
+              "/bingsearch - Bing search functionality"
+              "/chatgpt /ai /ask - Invoke ChatGPT for text-based interaction"
+              
+        )
+        
+        buttons = [
+            [
+                InlineKeyboardButton("๏ʙᴀᴄᴋ๏", callback_data="settings_back_helper")
+            ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)        
+        await query.message.edit_text(aihelp_text, reply_markup=reply_markup)
+
+    elif query.data == 'herokuhelp':
+        herokuhelp_text = (
+                     "/restartdynos - Restart dynos"
+                    "/apps - List available applications"
+                   "/veriable - Variable-related operations"
+                   "/herokulogs - View Heroku logs"
+                  "/herokuinfo - Get Heroku application info"
+                "/delheroku - Delete a Heroku application"
+               "/addapp - Add a new collaboration"                   
+        )
+           
+        buttons = [
+            [
+                InlineKeyboardButton("๏ʙᴀᴄᴋ๏", callback_data="settings_back_helper")
+            ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)  
+        await query.message.edit_text(herokuhelp_text, reply_markup=reply_markup)
+
+    elif query.data == 'toolhelp':
+        toolhelp_text = (
+                        "/table - Generate a table"
+                       "/telegraph /tgm - telegram link generate"             
+        )
+        
+        buttons = [
+            [
+                InlineKeyboardButton("๏ʙᴀᴄᴋ๏", callback_data="settings_back_helper")
+            ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(toolhelp_text, reply_markup=reply_markup)
