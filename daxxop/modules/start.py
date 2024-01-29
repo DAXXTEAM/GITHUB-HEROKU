@@ -198,11 +198,10 @@ async def callback_query_handler(_, query):
 
     elif query.data == 'aihelp':
         aihelp_text = (
-              "/assis - ChatGPT voice reply"
-              "/bingsearch - Bing search functionality"
-              "/chatgpt /ai /ask - Invoke ChatGPT for text-based interaction"
-              
-        )
+            "/assis - ChatGPT voice reply\n"
+            "/bingsearch - Bing search functionality\n"
+            "/chatgpt /ai /ask - Invoke ChatGPT for text-based interaction"              
+       )
         
         buttons = [
             [
@@ -214,13 +213,13 @@ async def callback_query_handler(_, query):
 
     elif query.data == 'herokuhelp':
         herokuhelp_text = (
-                     "/restartdynos - Restart dynos"
-                    "/apps - List available applications"
-                   "/veriable - Variable-related operations"
-                   "/herokulogs - View Heroku logs"
-                  "/herokuinfo - Get Heroku application info"
-                "/delheroku - Delete a Heroku application"
-               "/addapp - Add a new collaboration"                   
+            "/restartdynos - Restart dynos\n"
+            "/apps - List available applications\n"
+            "/veriable - Variable-related operations\n"
+            "/herokulogs - View Heroku logs\n"
+            "/herokuinfo - Get Heroku application info\n"
+            "/delheroku - Delete a Heroku application\n"
+            "/addapp - Add a new collaboration\n"                   
         )
            
         buttons = [
@@ -233,8 +232,8 @@ async def callback_query_handler(_, query):
 
     elif query.data == 'toolhelp':
         toolhelp_text = (
-                        "/table - Generate a table"
-                       "/telegraph /tgm - telegram link generate"             
+            "/table - Generate a table\n"
+            "/telegraph /tgm - telegram link generate\n"             
         )
         
         buttons = [
