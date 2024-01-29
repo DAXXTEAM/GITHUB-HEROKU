@@ -27,7 +27,7 @@ start_txt = f"""**
 #---------------------
 
 @app.on_message(filters.command("start"))
-async def start(_, msg):
+async def start(_, message):
     buttons = [
         [ 
           InlineKeyboardButton("๏ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ๏", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
@@ -43,14 +43,14 @@ async def start(_, msg):
     
     reply_markup = InlineKeyboardMarkup(buttons)
     
-    await msg.reply_photo(
+    await message.reply_photo(
         photo="https://graph.org/file/726169835ed7cdfd5ccf4.jpg",
         caption=start_txt,
         reply_markup=reply_markup
     )
 
 @app.on_message(filters.private & filters.command('help'))
-async def help_handler(_, msg):
+async def help_handler(_, message):
     help_text = (
         "**๏ᴄʜᴏᴏsᴇ ᴛʜᴇ ᴄᴀᴛᴇɢᴏʀʏ ғᴏʀ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴɴᴀ ɢᴇᴛ ʜᴇʟᴩ.**"
         "**ᴀsᴋ ʏᴏᴜʀ ᴅᴏᴜʙᴛs ᴀᴛ sᴜᴘᴘᴏʀᴛ** \n\n **ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ ๏: /**"
@@ -75,7 +75,7 @@ async def help_handler(_, msg):
   
     reply_markup = InlineKeyboardMarkup(buttons)
    
-    await msg.reply_text(help_text, reply_markup=reply_markup)
+    await message.reply_text(help_text, reply_markup=reply_markup)
 
 
 #------------------------------------------------------------------------------------
@@ -184,7 +184,11 @@ async def callback_query_handler(_, query):
             "➪/create_repo - Cʀᴇᴀᴛᴇ ᴀ ɴᴇᴡ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
             "➪/delrepo - Dᴇʟᴇᴛᴇ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
             "➪/add_collaborator - Aᴅᴅ ᴀ ᴄᴏʟʟᴀʙᴏʀᴀᴛᴏʀ ᴛᴏ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
-            "➪/remove_collaborator - Rᴇᴍᴏᴠᴇ ᴀ ᴄᴏʟʟᴀʙᴏʀᴀᴛᴏʀ ғʀᴏᴍ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ "
+            "➪/remove_collaborator - Rᴇᴍᴏᴠᴇ ᴀ ᴄᴏʟʟᴀʙᴏʀᴀᴛᴏʀ ғʀᴏᴍ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
+            "➪/font /delrepo - Dᴇʟᴇᴛᴇ ᴀ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
+            "➪/downloadrepo - Dᴏᴡɴʟᴏᴀᴅ ᴀ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
+            "➪/fork - Fᴏʀᴋ ᴀ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
+            "➪/forkall - Fᴏʀᴋ ᴀʟʟ ʀᴇᴘᴏsɪᴛᴏʀɪᴇs"
         )
         
         buttons = [
@@ -198,9 +202,9 @@ async def callback_query_handler(_, query):
 
     elif query.data == 'aihelp':
         aihelp_text = (
-            "/assis - CʜᴀᴛGPT ᴠᴏɪᴄᴇ ʀᴇᴘʟʏ\n"
-            "/bingsearch - Bɪɴɢ sᴇᴀʀᴄʜ ғᴜɴᴄᴛɪᴏɴᴀʟɪᴛʏ\n"
-            "/chatgpt /ai /ask - Iɴᴠᴏᴋᴇ CʜᴀᴛGPT ғᴏʀ ᴛᴇxᴛ-ʙᴀsᴇᴅ ɪɴᴛᴇʀᴀᴄᴛɪᴏɴ"              
+            "➪/assis - CʜᴀᴛGPT ᴠᴏɪᴄᴇ ʀᴇᴘʟʏ\n"
+            "➪/bingsearch - Bɪɴɢ sᴇᴀʀᴄʜ ғᴜɴᴄᴛɪᴏɴᴀʟɪᴛʏ\n"
+            "➪/chatgpt /ai /ask - Iɴᴠᴏᴋᴇ CʜᴀᴛGPT ғᴏʀ ᴛᴇxᴛ-ʙᴀsᴇᴅ ɪɴᴛᴇʀᴀᴄᴛɪᴏɴ"              
        )
         
         buttons = [
@@ -213,13 +217,13 @@ async def callback_query_handler(_, query):
 
     elif query.data == 'herokuhelp':
         herokuhelp_text = (
-            "/restartdynos - Rᴇsᴛᴀʀᴛ ᴅʏɴᴏs\n"
-            "/apps - Lɪsᴛ ᴀᴠᴀɪʟᴀʙʟᴇ ᴀᴘᴘʟɪᴄᴀᴛɪᴏɴs\n"
-            "/veriable - Vᴀʀɪᴀʙʟᴇ-ʀᴇʟᴀᴛᴇᴅ ᴏᴘᴇʀᴀᴛɪᴏɴs\n"
-            "/herokulogs - Vɪᴇᴡ Hᴇʀᴏᴋᴜ ʟᴏɢs\n"
-            "/herokuinfo - Gᴇᴛ Hᴇʀᴏᴋᴜ ᴀᴘᴘʟɪᴄᴀᴛɪᴏɴ ɪɴғᴏ\n"
-            "/delheroku - Dᴇʟᴇᴛᴇ ᴀ Hᴇʀᴏᴋᴜ ᴀᴘᴘʟɪᴄᴀᴛɪᴏɴ\n"
-            "/addapp - Aᴅᴅ ᴀ ɴᴇᴡ ᴄᴏʟʟᴀʙᴏʀᴀᴛɪᴏɴ\n"                   
+            "➪/restartdynos - Rᴇsᴛᴀʀᴛ ᴅʏɴᴏs\n"
+            "➪/apps - Lɪsᴛ ᴀᴠᴀɪʟᴀʙʟᴇ ᴀᴘᴘʟɪᴄᴀᴛɪᴏɴs\n"
+            "➪/veriable - Vᴀʀɪᴀʙʟᴇ-ʀᴇʟᴀᴛᴇᴅ ᴏᴘᴇʀᴀᴛɪᴏɴs\n"
+            "➪/herokulogs - Vɪᴇᴡ Hᴇʀᴏᴋᴜ ʟᴏɢs\n"
+            "➪/herokuinfo - Gᴇᴛ Hᴇʀᴏᴋᴜ ᴀᴘᴘʟɪᴄᴀᴛɪᴏɴ ɪɴғᴏ\n"
+            "➪/delheroku - Dᴇʟᴇᴛᴇ ᴀ Hᴇʀᴏᴋᴜ ᴀᴘᴘʟɪᴄᴀᴛɪᴏɴ\n"
+            "➪/addapp - Aᴅᴅ ᴀ ɴᴇᴡ ᴄᴏʟʟᴀʙᴏʀᴀᴛɪᴏɴ\n"                   
         )
            
         buttons = [
@@ -232,8 +236,8 @@ async def callback_query_handler(_, query):
 
     elif query.data == 'toolhelp':
         toolhelp_text = (
-            "/table - Gᴇɴᴇʀᴀᴛᴇ ᴀ ᴛᴀʙʟᴇ\n"
-            "/telegraph /tgm - ᴛᴇʟᴇɢʀᴀᴍ ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇ\n"             
+            "➪/table - Gᴇɴᴇʀᴀᴛᴇ ᴀ ᴛᴀʙʟᴇ\n"
+            "➪/telegraph /tgm - ᴛᴇʟᴇɢʀᴀᴍ ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇ\n"             
         )
         
         buttons = [
@@ -246,9 +250,9 @@ async def callback_query_handler(_, query):
 
     elif query.data == 'infohelp':
         devhelp_text = (
-            "/html - HTML-ʀᴇʟᴀᴛᴇᴅ ᴏᴘᴇʀᴀᴛɪᴏɴs ᴡᴇʙsɪᴛᴇ ᴅʟ\n"
-            "/pypi - Pʏᴛʜᴏɴ Pᴀᴄᴋᴀɢᴇ Iɴᴅᴇx ᴏᴘᴇʀᴀᴛɪᴏɴs\n"
-            "/leavegroup - Lᴇᴀᴠᴇ ᴀ Tᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘ\n"              
+            "➪/html - HTML-ʀᴇʟᴀᴛᴇᴅ ᴏᴘᴇʀᴀᴛɪᴏɴs ᴡᴇʙsɪᴛᴇ ᴅʟ\n"
+            "➪/pypi - Pʏᴛʜᴏɴ Pᴀᴄᴋᴀɢᴇ Iɴᴅᴇx ᴏᴘᴇʀᴀᴛɪᴏɴs\n"
+            "➪/leavegroup - Lᴇᴀᴠᴇ ᴀ Tᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘ\n"              
         )
   
         buttons = [
@@ -261,8 +265,10 @@ async def callback_query_handler(_, query):
 
     elif query.data == 'devhelp':
         infohelp_text = (
-            "/github /git - GɪᴛHᴜʙ-Rᴇʟᴀᴛᴇᴅ Oᴘᴇʀᴀᴛɪᴏɴs"
-            "/id - Usᴇʀ ID Iɴғᴏ"    
+            "➪/github /git - GɪᴛHᴜʙ-Rᴇʟᴀᴛᴇᴅ Oᴘᴇʀᴀᴛɪᴏɴs\n"
+            "➪/id - Usᴇʀ ID Iɴғᴏ\n"  
+            "➪/op - Exᴇᴄᴜᴛᴇ ᴀɴ Oᴘᴇʀᴀᴛɪᴏɴ\n"
+            "➪/sh - Sʜᴇʟʟ/Cᴏᴍᴍᴀɴᴅ Lɪɴᴇ Oᴘᴇʀᴀᴛɪᴏɴs"
         )
         
         buttons = [
