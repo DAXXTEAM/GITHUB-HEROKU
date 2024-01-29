@@ -49,11 +49,35 @@ async def start(_, msg):
         reply_markup=reply_markup
     )
 
+@app.on_message(filters.private & filters.command('help'))
+async def help_handler(_, msg):
+    help_text = (
+        "**๏ᴄʜᴏᴏsᴇ ᴛʜᴇ ᴄᴀᴛᴇɢᴏʀʏ ғᴏʀ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴɴᴀ ɢᴇᴛ ʜᴇʟᴩ.**"
+        "**ᴀsᴋ ʏᴏᴜʀ ᴅᴏᴜʙᴛs ᴀᴛ sᴜᴘᴘᴏʀᴛ** \n\n **ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ ๏: /**"
+    )
+    
+    buttons = [
+        [
+            InlineKeyboardButton("๏ɢɪᴛʜᴜʙ๏", callback_data="githelp"),
+            InlineKeyboardButton("๏ᴀɪ๏", callback_data="aihelp"),
+            InlineKeyboardButton("๏ʜᴇʀᴏᴋᴜ๏", callback_data="herokuhelp")
+        ],
+        [
+            InlineKeyboardButton("๏ᴛᴏᴏʟs๏", callback_data="toolhelp"),
+            InlineKeyboardButton("๏ɪɴғᴏ๏", callback_data="infohelp"),
+            InlineKeyboardButton("๏ᴅᴇᴠ ᴛᴏᴏʟs๏", callback_data="devhelp")
+        ],
+        
+        [
+            InlineKeyboardButton("๏ᴄʟᴏsᴇ๏", callback_data="close_data")
+        ]
+    ]
+  
+    reply_markup = InlineKeyboardMarkup(buttons)
+   
+    await msg.reply_text(help_text, reply_markup=reply_markup)
 
 
-#➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪#➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪➪
-
-#---------------------------------------------------------------
 #------------------------------------------------------------------------------------
 @app.on_message(filters.command(["help"]) & filters.group)
 async def help_command(_, message):
@@ -81,30 +105,6 @@ async def on_pm_s(client: Client, message: Message):
 
 glink = 'https://t.me/DAXXSUPPORT'
 
-@app.on_message(filters.private & filters.command('help'))
-def help_handler(_, message):
-    help_text = "This is a sample bot.\n\nYou can use the following commands:"
-    
-    buttons = [
-        [
-            InlineKeyboardButton("๏ɢɪᴛʜᴜʙ๏", callback_data="githelp"),
-            InlineKeyboardButton("๏ᴀɪ๏", callback_data="aihelp"),
-            InlineKeyboardButton("๏ʜᴇʀᴏᴋᴜ๏", callback_data="herokuhelp")
-        ],
-        [
-            InlineKeyboardButton("๏ᴛᴏᴏʟs๏", callback_data="toolhelp"),
-            InlineKeyboardButton("๏ɪɴғᴏ๏", callback_data="infohelp"),
-            InlineKeyboardButton("๏ᴅᴇᴠ ᴛᴏᴏʟs๏", callback_data="devhelp")
-        ],
-        
-        [
-            InlineKeyboardButton("๏ᴄʟᴏsᴇ๏", callback_data="close_data")
-        ]
-    ]
-  
-    reply_markup = InlineKeyboardMarkup(buttons)
-   
-    message.reply_text(help_text, reply_markup=reply_markup)
 
 @app.on_callback_query()
 async def callback_query_handler(_, query):
@@ -137,16 +137,7 @@ async def callback_query_handler(_, query):
 
     elif query.data == 'back_help':
         start_txt = (
-            "**ʜᴇʏ ᴛʜᴇʀᴇ  ɴɪᴄᴇ ᴛᴏ ᴍᴇᴇᴛ ʏᴏᴜ !**\n"
-            "━━━━━━━━━━━━━━━━━━━━━━\n"
-            "**๏🤖 ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ɢɪᴛʜᴜʙ & ʜᴇʀᴏᴋᴜ ᴄᴏɴᴛʀᴏʟ ʙᴏᴛ**\n"
-            "━━━━━━━━━━━━━━━━━━━━━━\n"
-            "**๏ᴛʜɪs ʙᴏᴛ sɪᴍᴘʟɪғɪᴇs ʏᴏᴜʀ**\n"
-            "**ᴅᴇᴠᴇʟᴏᴘᴍᴇɴᴛ Jᴏᴜʀɴᴇʏ ʙʏ ɪɴᴛᴇɢʀᴀᴛɪɴɢ ɢɪᴛʜᴜʙ ʀᴇᴄᴇɪᴠᴇ ɪɴsᴛᴀɴᴛ ɢɪᴛʜᴜʙ ᴜᴘᴅᴀᴛᴇs ᴀɴᴅ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ʜᴇʀᴏᴋᴜ**\n"
-            "━━━━━━━━━━━━━━━━━━━━━━"
-            "**๏ᴅᴇᴘʟᴏʏᴍᴇɴᴛs ᴇғғᴏʀᴛʟᴇssʟʏ**\n"
-            "**ᴛʏᴘᴇ /help ᴛᴏ ᴇxᴘʟᴏʀᴇ ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs ᴀɴᴅ sᴜᴘᴇʀᴄʜᴀʀɢᴇ ʏᴏᴜʀ ᴡᴏʀᴋғʟᴏᴡ. ʟᴇᴛ's ᴍᴀᴋᴇ ᴄᴏᴅɪɴɢ ᴀɴᴅ ᴅᴇᴘʟᴏʏᴍᴇɴᴛ ᴀ ʙʀᴇᴇᴢᴇ! 💻🔧 #ɢɪᴛʜᴜʙ #ʜᴇʀᴏᴋᴜ #ᴅᴇᴠᴛᴏᴏʟs**\n"
-            "━━━━━━━━━━━━━━━━━━━━━━\n"
+            "**ʜᴇʏ ᴛʜᴇʀᴇ  ɴɪᴄᴇ ᴛᴏ ᴍᴇᴇᴛ ʏᴏᴜ !**\n━━━━━━━━━━━━━━━━━━━━━━\n**๏🤖 ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ɢɪᴛʜᴜʙ & ʜᴇʀᴏᴋᴜ ᴄᴏɴᴛʀᴏʟ ʙᴏᴛ**\n━━━━━━━━━━━━━━━━━━━━━━\n**๏ᴛʜɪs ʙᴏᴛ sɪᴍᴘʟɪғɪᴇs ʏᴏᴜʀ**\n**ᴅᴇᴠᴇʟᴏᴘᴍᴇɴᴛ Jᴏᴜʀɴᴇʏ ʙʏ ɪɴᴛᴇɢʀᴀᴛɪɴɢ ɢɪᴛʜᴜʙ ʀᴇᴄᴇɪᴠᴇ ɪɴsᴛᴀɴᴛ ɢɪᴛʜᴜʙ ᴜᴘᴅᴀᴛᴇs ᴀɴᴅ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ʜᴇʀᴏᴋᴜ**\n━━━━━━━━━━━━━━━━━━━━━━**๏ᴅᴇᴘʟᴏʏᴍᴇɴᴛs ᴇғғᴏʀᴛʟᴇssʟʏ**\n**ᴛʏᴘᴇ /help ᴛᴏ ᴇxᴘʟᴏʀᴇ ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs ᴀɴᴅ sᴜᴘᴇʀᴄʜᴀʀɢᴇ ʏᴏᴜʀ ᴡᴏʀᴋғʟᴏᴡ. ʟᴇᴛ's ᴍᴀᴋᴇ ᴄᴏᴅɪɴɢ ᴀɴᴅ ᴅᴇᴘʟᴏʏᴍᴇɴᴛ ᴀ ʙʀᴇᴇᴢᴇ! 💻🔧 #ɢɪᴛʜᴜʙ #ʜᴇʀᴏᴋᴜ #ᴅᴇᴠᴛᴏᴏʟs**\n━━━━━━━━━━━━━━━━━━━━━━\n"
         )
         buttons = [
             [ 
@@ -163,10 +154,7 @@ async def callback_query_handler(_, query):
         ]
     
         reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            caption=start_txt,
-            reply_markup=reply_markup
-        )
+        await query.message.edit_text(start_txt, reply_markup=reply_markup)
 
 
     elif query.data == 'new_callback_data':
