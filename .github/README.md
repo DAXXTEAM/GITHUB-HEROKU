@@ -1,6 +1,6 @@
 
     
-![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=DAXXTEAM&repo=daxxop&theme=flag-india)
+![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=DAXXTEAM&repo=GITHUB-HEROKU&theme=flag-india)
 
 
 
@@ -14,11 +14,11 @@
 </p>
 
 <p align="center">
-<a href="https://github.com/DAXXTEAM/daxxop/stargazers"><img src="https://img.shields.io/github/stars/DAXXTEAM/daxxop?color=black&logo=github&logoColor=black&style=for-the-badge" alt="Stars" /></a>
-<a href="https://github.com/DAXXTEAM/daxxop/network/members"> <img src="https://img.shields.io/github/forks/DAXXTEAM/daxxop?color=black&logo=github&logoColor=black&style=for-the-badge" /></a>
-<a href="https://github.com/DAXXTEAM/daxxop/blob/master/LICENSE"> <img src="https://img.shields.io/badge/License-MIT-blueviolet?style=for-the-badge" alt="License" /> </a>
+<a href="https://github.com/DAXXTEAM/GITHUB-HEROKU/stargazers"><img src="https://img.shields.io/github/stars/DAXXTEAM/GITHUB-HEROKU?color=black&logo=github&logoColor=black&style=for-the-badge" alt="Stars" /></a>
+<a href="https://github.com/DAXXTEAM/GITHUB-HEROKU/network/members"> <img src="https://img.shields.io/github/forks/DAXXTEAM/GITHUB-HEROKU?color=black&logo=github&logoColor=black&style=for-the-badge" /></a>
+<a href="https://github.com/DAXXTEAM/GITHUB-HEROKU/blob/master/LICENSE"> <img src="https://img.shields.io/badge/License-MIT-blueviolet?style=for-the-badge" alt="License" /> </a>
 <a href="https://www.python.org/"> <img src="https://img.shields.io/badge/Written%20in-Python-orange?style=for-the-badge&logo=python" alt="Python" /> </a>
-<a href="https://github.com/DAXXTEAM/daxxop/commits/DAXXTEAM"> <img src="https://img.shields.io/github/last-commit/DAXXTEAM/daxxop?color=blue&logo=github&logoColor=green&style=for-the-badge" /></a>
+<a href="https://github.com/DAXXTEAM/GITHUB-HEROKU/commits/DAXXTEAM"> <img src="https://img.shields.io/github/last-commit/DAXXTEAM/GITHUB-HEROKU?color=blue&logo=github&logoColor=green&style=for-the-badge" /></a>
 </p>
 
 
@@ -33,7 +33,7 @@
     ─「 ᴅᴇᴩʟᴏʏ ᴏɴ ʜᴇʀᴏᴋᴜ 」─
 </h3>
 
-<p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/DAXXTEAM/daxxop"> <img src="https://img.shields.io/badge/𝖡𝖧𝖮𝖲𝖣𝖨 𝖪 𝖪𝖱𝖫𝖮 𝖣𝖤𝖯𝖫𝖮𝖸-black?style=for-the-badge&logo=heroku" width="320" height="138.45"/></a></p>
+<p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/DAXXTEAM/GITHUB-HEROKU"> <img src="https://img.shields.io/badge/𝖡𝖧𝖮𝖲𝖣𝖨 𝖪 𝖪𝖱𝖫𝖮 𝖣𝖤𝖯𝖫𝖮𝖸-black?style=for-the-badge&logo=heroku" width="320" height="138.45"/></a></p>
 
 
 
