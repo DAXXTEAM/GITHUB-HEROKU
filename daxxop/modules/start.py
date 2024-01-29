@@ -56,9 +56,6 @@ async def start(_, message):
 # ----------------------------
 
     await message.reply_sticker(sticker=sticker_id)
-
-    await asyncio.sleep(3)
-    await reply_message.delete()
 #-------------------------------
 
 
