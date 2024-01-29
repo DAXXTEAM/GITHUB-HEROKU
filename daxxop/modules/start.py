@@ -104,7 +104,6 @@ async def help_command(_, message):
     sticker_message = await message.reply_sticker(sticker=sticker_id2)
 
     await message.reply_text(caption, reply_markup=keyboard)
-    await sticker_message.delete()
 
 
 #-------------------------------------------------
