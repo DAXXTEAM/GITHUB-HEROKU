@@ -188,8 +188,8 @@ async def callback_query_handler(_, query):
             "➪/delrepo - Dᴇʟᴇᴛᴇ ᴀ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
             "➪/downloadrepo - Dᴏᴡɴʟᴏᴀᴅ ᴀ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
             "➪/fork - Fᴏʀᴋ ᴀ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
-            "➪/forkall - Fᴏʀᴋ ᴀʟʟ ʀᴇᴘᴏsɪᴛᴏʀɪᴇs"
-            "➪/gitpublic - Git public operations"
+            "➪/forkall - Fᴏʀᴋ ᴀʟʟ ʀᴇᴘᴏsɪᴛᴏʀɪᴇs\n"
+            "➪/gitpublic - Git public operations\n"
             "➪/gitprivate - Git private operations"
         )
         
