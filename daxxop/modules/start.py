@@ -171,7 +171,7 @@ async def callback_query_handler(_, query):
             media=InputMediaVideo("https://graph.org/file/8926caeb4948c47b12080.mp4", has_spoiler=True),
             reply_markup=InlineKeyboardMarkup(
                 [
-                    [InlineKeyboardButton(text="๏ ʙᴀᴄᴋ ๏", callback_data="settings_back_helper")]
+                    [InlineKeyboardButton(text="๏ ʙᴀᴄᴋ ๏", callback_data="back_help")]
                 ]
             ),
         )
@@ -189,7 +189,7 @@ async def callback_query_handler(_, query):
         
         buttons = [
             [
-                InlineKeyboardButton("๏ʙᴀᴄᴋ๏", callback_data="help")
+                InlineKeyboardButton("๏ʙᴀᴄᴋ๏", callback_data="settings_back_helper")
             ]
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
