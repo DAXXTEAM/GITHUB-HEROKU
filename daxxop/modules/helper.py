@@ -20,7 +20,6 @@ async def close_callback(_, query):
 
 
 @app.on_message(filters.private & filters.command('help'))
-@app.on_callback_query(filters.regex("settings_back_helper"))
 def help_handler(client, message):
     help_text = "This is a sample bot.\n\nYou can use the following commands:"
     
