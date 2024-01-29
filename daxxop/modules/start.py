@@ -81,31 +81,30 @@ async def on_pm_s(client: Client, message: Message):
 
 glink = 'https://t.me/DAXXSUPPORT'
 
-buttons = [
-    [
-        InlineKeyboardButton("๏ɢɪᴛʜᴜʙ๏", callback_data="githelp"),
-        InlineKeyboardButton("๏ᴀɪ๏", callback_data="aihelp"),
-        InlineKeyboardButton("๏ʜᴇʀᴏᴋᴜ๏", callback_data="herokuhelp")
-    ],
-    [
-        InlineKeyboardButton("๏ᴛᴏᴏʟs๏", callback_data="toolhelp"),
-        InlineKeyboardButton("๏ɪɴғᴏ๏", callback_data="infohelp"),
-        InlineKeyboardButton("๏ᴅᴇᴠ ᴛᴏᴏʟs๏", callback_data="devhelp")
-    ],
-    [
-        InlineKeyboardButton("๏ʙᴀᴄᴋ๏", callback_data="backhelp")
-    ]
-]
-
-help_text = """๏ᴄʜᴏᴏsᴇ ᴛʜᴇ ᴄᴀᴛᴇɢᴏʀʏ ғᴏʀ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴɴᴀ ɢᴇᴛ ʜᴇʟᴩ.
-ᴀsᴋ ʏᴏᴜʀ ᴅᴏᴜʙᴛs ᴀᴛ sᴜᴘᴘᴏʀᴛ
-
-ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ ๏: /"""
-
 @app.on_message(filters.private & filters.command('help'))
 async def help_handler(client, message):  
-    reply_markup = InlineKeyboardMarkup(buttons)  
-    message.reply_text(help_text, reply_markup=reply_markup)
+    buttons = [
+        [
+            InlineKeyboardButton("๏ɢɪᴛʜᴜʙ๏", callback_data="githelp"),
+            InlineKeyboardButton("๏ᴀɪ๏", callback_data="aihelp"),
+            InlineKeyboardButton("๏ʜᴇʀᴏᴋᴜ๏", callback_data="herokuhelp")
+        ],
+        [
+            InlineKeyboardButton("๏ᴛᴏᴏʟs๏", callback_data="toolhelp"),
+            InlineKeyboardButton("๏ɪɴғᴏ๏", callback_data="infohelp"),
+            InlineKeyboardButton("๏ᴅᴇᴠ ᴛᴏᴏʟs๏", callback_data="devhelp")
+        ],
+        [
+            InlineKeyboardButton("๏ᴄʟᴏsᴇ๏", callback_data="close_data")
+        ]
+    ]
+
+        help_text = """๏ᴄʜᴏᴏsᴇ ᴛʜᴇ ᴄᴀᴛᴇɢᴏʀʏ ғᴏʀ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴɴᴀ ɢᴇᴛ ʜᴇʟᴩ.
+        ᴀsᴋ ʏᴏᴜʀ ᴅᴏᴜʙᴛs ᴀᴛ sᴜᴘᴘᴏʀᴛ \n\n ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ ๏: /"""
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await message.reply_text(help_text, reply_markup=reply_markup)
+
+
 
 @app.on_callback_query()
 async def callback_query_handler(_, query):
@@ -125,16 +124,36 @@ async def callback_query_handler(_, query):
                 InlineKeyboardButton("๏ᴅᴇᴠ ᴛᴏᴏʟs๏", callback_data="devhelp")
             ],
             [
-                InlineKeyboardButton("๏ʙᴀᴄᴋ๏", callback_data="backhelp")
+                InlineKeyboardButton("๏ʙᴀᴄᴋ๏", callback_data="back_data")
             ]
         ]
 
         help_text = """๏ᴄʜᴏᴏsᴇ ᴛʜᴇ ᴄᴀᴛᴇɢᴏʀʏ ғᴏʀ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴɴᴀ ɢᴇᴛ ʜᴇʟᴩ.
-        ᴀsᴋ ʏᴏᴜʀ ᴅᴏᴜʙᴛs ᴀᴛ sᴜᴘᴘᴏʀᴛ
-
-        ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ ๏: /"""
+        ᴀsᴋ ʏᴏᴜʀ ᴅᴏᴜʙᴛs ᴀᴛ sᴜᴘᴘᴏʀᴛ \n\n ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ ๏: /"""
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.reply_text(help_text, reply_markup=reply_markup)
+    elif query.data == 'back_data':
+        buttons = [
+            [
+                InlineKeyboardButton("๏ɢɪᴛʜᴜʙ๏", callback_data="githelp"),
+                InlineKeyboardButton("๏ᴀɪ๏", callback_data="aihelp"),
+                InlineKeyboardButton("๏ʜᴇʀᴏᴋᴜ๏", callback_data="herokuhelp")
+            ],
+            [
+                InlineKeyboardButton("๏ᴛᴏᴏʟs๏", callback_data="toolhelp"),
+                InlineKeyboardButton("๏ɪɴғᴏ๏", callback_data="infohelp"),
+                InlineKeyboardButton("๏ᴅᴇᴠ ᴛᴏᴏʟs๏", callback_data="devhelp")
+            ],
+            [
+                InlineKeyboardButton("๏ᴄʟᴏsᴇ๏", callback_data="close_data")
+            ]
+        ]
+
+        help_text = """๏ᴄʜᴏᴏsᴇ ᴛʜᴇ ᴄᴀᴛᴇɢᴏʀʏ ғᴏʀ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴɴᴀ ɢᴇᴛ ʜᴇʟᴩ.
+        ᴀsᴋ ʏᴏᴜʀ ᴅᴏᴜʙᴛs ᴀᴛ sᴜᴘᴘᴏʀᴛ \n\n ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ ๏: /"""
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(help_text, reply_markup=reply_markup)
+
     elif query.data == 'new_callback_data':
         await query.message.edit_media(
             media=InputMediaVideo("https://graph.org/file/8926caeb4948c47b12080.mp4", has_spoiler=True),
