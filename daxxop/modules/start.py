@@ -163,7 +163,7 @@ async def callback_query_handler(_, query):
         ]
     
         reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(caption=start_txt, reply_markup=reply_markup)
+        await query.message.edit_text(start_txt, reply_markup=reply_markup)
 
 
     elif query.data == 'new_callback_data':
