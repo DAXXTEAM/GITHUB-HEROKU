@@ -49,14 +49,18 @@ async def start(_, message):
     
     reply_markup = InlineKeyboardMarkup(buttons)
 
-    sticker_message = await message.reply_sticker(sticker=sticker_id)
+    command_parameter = message.command[1] if len(message.command) > 1 else None
+    if command_parameter == "help":
+        await help_handler(_, message)
+    else:
+        sticker_message = await message.reply_sticker(sticker=sticker_id)
 
-    await message.reply_photo(
-        photo="https://graph.org/file/726169835ed7cdfd5ccf4.jpg",
-        caption=start_txt,
-        reply_markup=reply_markup
-    )
-    await sticker_message.delete()
+        await message.reply_photo(
+            photo="https://graph.org/file/726169835ed7cdfd5ccf4.jpg",
+            caption=start_txt,
+            reply_markup=reply_markup
+        )
+        await sticker_message.delete()
 # ----------------------------
 
 #-------------------------------
