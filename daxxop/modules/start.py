@@ -47,14 +47,14 @@ async def start(_, message):
     
     reply_markup = InlineKeyboardMarkup(buttons)
 
-    await message.reply_sticker(sticker=sticker_id)
+    sticker_message = await message.reply_sticker(sticker=sticker_id)
 
     await message.reply_photo(
         photo="https://graph.org/file/726169835ed7cdfd5ccf4.jpg",
         caption=start_txt,
         reply_markup=reply_markup
     )
-
+    await sticker_message.delete()
 # ----------------------------
 
 #-------------------------------
