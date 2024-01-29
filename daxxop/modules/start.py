@@ -56,7 +56,7 @@ async def start(_, msg):
 #---------------------------------------------------------------
 #------------------------------------------------------------------------------------
 @app.on_message(filters.command(["help"]) & filters.group)
-async def help_command(_, msg):
+async def help_command(_, message):
     start_button_link = f"https://t.me/{BOT_USERNAME}?start=your_start_parameter"
     caption = "๏ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ᴍʏ ʜᴇʟᴘ ᴍᴇɴᴜ ɪɴ ʏᴏᴜʀ ᴘᴍ "
 
@@ -66,7 +66,7 @@ async def help_command(_, msg):
         ]
     )
 
-    await msg.reply_text(caption, reply_markup=keyboard)
+    await message.reply_text(caption, reply_markup=keyboard)
 
 
 
@@ -82,7 +82,7 @@ async def on_pm_s(client: Client, message: Message):
 glink = 'https://t.me/DAXXSUPPORT'
 
 @app.on_message(filters.private & filters.command('help'))
-async def help_handler(_, msg):  
+async def help_handler(_, message):  
     buttons = [
         [
             InlineKeyboardButton("๏ɢɪᴛʜᴜʙ๏", callback_data="githelp"),
@@ -104,7 +104,7 @@ async def help_handler(_, msg):
         " ᴀsᴋ ʏᴏᴜʀ ᴅᴏᴜʙᴛs ᴀᴛ sᴜᴘᴘᴏʀᴛ \n\n ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ ๏: /"
     )
     reply_markup = InlineKeyboardMarkup(buttons)
-    await msg.reply_text(help_text, reply_markup=reply_markup)
+    await message.reply_text(help_text, reply_markup=reply_markup)
 
 
 
