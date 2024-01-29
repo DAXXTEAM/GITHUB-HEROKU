@@ -6,9 +6,13 @@ import config
 from pyrogram.types import InputMediaVideo
 import random 
 from pyrogram.types import Message
-
+import asyncio
 #⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 #⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+# ------------------------------------
+sticker_id = "CAACAgUAAx0CcmOuMwACFtFlt_PqlNHz9TeRS1Jak-CxUoL1bwACBAADwSQxMYnlHW4Ls8gQHgQ"
+# ------------------------------------
 
 
 start_txt = f"""**
@@ -48,6 +52,16 @@ async def start(_, message):
         caption=start_txt,
         reply_markup=reply_markup
     )
+
+# ----------------------------
+
+    await message.reply_sticker(sticker=sticker_id)
+
+    await asyncio.sleep(3)
+    await reply_message.delete()
+#-------------------------------
+
+
 
 @app.on_message(filters.private & filters.command('help'))
 async def help_handler(_, message):
