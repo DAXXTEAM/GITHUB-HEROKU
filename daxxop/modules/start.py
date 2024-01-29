@@ -82,7 +82,9 @@ async def on_pm_s(client: Client, message: Message):
 glink = 'https://t.me/DAXXSUPPORT'
 
 @app.on_message(filters.private & filters.command('help'))
-async def help_handler(_, message):  
+def help_handler(_, message):
+    help_text = "This is a sample bot.\n\nYou can use the following commands:"
+    
     buttons = [
         [
             InlineKeyboardButton("๏ɢɪᴛʜᴜʙ๏", callback_data="githelp"),
@@ -94,19 +96,15 @@ async def help_handler(_, message):
             InlineKeyboardButton("๏ɪɴғᴏ๏", callback_data="infohelp"),
             InlineKeyboardButton("๏ᴅᴇᴠ ᴛᴏᴏʟs๏", callback_data="devhelp")
         ],
+        
         [
             InlineKeyboardButton("๏ᴄʟᴏsᴇ๏", callback_data="close_data")
         ]
     ]
-
-    help_text = (
-        "๏ᴄʜᴏᴏsᴇ ᴛʜᴇ ᴄᴀᴛᴇɢᴏʀʏ ғᴏʀ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴɴᴀ ɢᴇᴛ ʜᴇʟᴩ."
-        " ᴀsᴋ ʏᴏᴜʀ ᴅᴏᴜʙᴛs ᴀᴛ sᴜᴘᴘᴏʀᴛ \n\n ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ ๏: /"
-    )
+  
     reply_markup = InlineKeyboardMarkup(buttons)
-    await message.reply_text(help_text, reply_markup=reply_markup)
-
-
+   
+    message.reply_text(help_text, reply_markup=reply_markup)
 
 @app.on_callback_query()
 async def callback_query_handler(_, query):
@@ -126,30 +124,7 @@ async def callback_query_handler(_, query):
                 InlineKeyboardButton("๏ᴅᴇᴠ ᴛᴏᴏʟs๏", callback_data="devhelp")
             ],
             [
-                InlineKeyboardButton("๏ʙᴀᴄᴋ๏", callback_data="back_data")
-            ]
-        ]
-
-        help_text = (
-            "๏ᴄʜᴏᴏsᴇ ᴛʜᴇ ᴄᴀᴛᴇɢᴏʀʏ ғᴏʀ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴɴᴀ ɢᴇᴛ ʜᴇʟᴩ."
-            " ᴀsᴋ ʏᴏᴜʀ ᴅᴏᴜʙᴛs ᴀᴛ sᴜᴘᴘᴏʀᴛ \n\n ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ ๏: /"
-        )
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.reply_text(help_text, reply_markup=reply_markup)
-    elif query.data == 'back_data':
-        buttons = [
-            [
-                InlineKeyboardButton("๏ɢɪᴛʜᴜʙ๏", callback_data="githelp"),
-                InlineKeyboardButton("๏ᴀɪ๏", callback_data="aihelp"),
-                InlineKeyboardButton("๏ʜᴇʀᴏᴋᴜ๏", callback_data="herokuhelp")
-            ],
-            [
-                InlineKeyboardButton("๏ᴛᴏᴏʟs๏", callback_data="toolhelp"),
-                InlineKeyboardButton("๏ɪɴғᴏ๏", callback_data="infohelp"),
-                InlineKeyboardButton("๏ᴅᴇᴠ ᴛᴏᴏʟs๏", callback_data="devhelp")
-            ],
-            [
-                InlineKeyboardButton("๏ᴄʟᴏsᴇ๏", callback_data="close_data")
+                InlineKeyboardButton("๏ʙᴀᴄᴋ๏", callback_data="backhelp")
             ]
         ]
 
@@ -159,6 +134,40 @@ async def callback_query_handler(_, query):
         )
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(help_text, reply_markup=reply_markup)
+
+    elif query.data == 'back_help':
+        start_txt = f"""**
+        ʜᴇʏ ᴛʜᴇʀᴇ  ɴɪᴄᴇ ᴛᴏ ᴍᴇᴇᴛ ʏᴏᴜ !
+        ━━━━━━━━━━━━━━━━━━━━━━
+        ๏🤖 ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ɢɪᴛʜᴜʙ & ʜᴇʀᴏᴋᴜ ᴄᴏɴᴛʀᴏʟ ʙᴏᴛ
+        ━━━━━━━━━━━━━━━━━━━━━━
+        ๏ᴛʜɪs ʙᴏᴛ sɪᴍᴘʟɪғɪᴇs ʏᴏᴜʀ   
+        ᴅᴇᴠᴇʟᴏᴘᴍᴇɴᴛ Jᴏᴜʀɴᴇʏ ʙʏ ɪɴᴛᴇɢʀᴀᴛɪɴɢ ɢɪᴛʜᴜʙ ʀᴇᴄᴇɪᴠᴇ ɪɴsᴛᴀɴᴛ ɢɪᴛʜᴜʙ ᴜᴘᴅᴀᴛᴇs ᴀɴᴅ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ʜᴇʀᴏᴋᴜ
+        ━━━━━━━━━━━━━━━━━━━━━━
+        ๏ᴅᴇᴘʟᴏʏᴍᴇɴᴛs ᴇғғᴏʀᴛʟᴇssʟʏ
+        ᴛʏᴘᴇ /help ᴛᴏ ᴇxᴘʟᴏʀᴇ ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs ᴀɴᴅ sᴜᴘᴇʀᴄʜᴀʀɢᴇ ʏᴏᴜʀ ᴡᴏʀᴋғʟᴏᴡ. ʟᴇᴛ's ᴍᴀᴋᴇ ᴄᴏᴅɪɴɢ ᴀɴᴅ ᴅᴇᴘʟᴏʏᴍᴇɴᴛ ᴀ ʙʀᴇᴇᴢᴇ! 💻🔧 #ɢɪᴛʜᴜʙ #ʜᴇʀᴏᴋᴜ #ᴅᴇᴠᴛᴏᴏʟs"
+        ━━━━━━━━━━━━━━━━━━━━━━
+        **"""
+        buttons = [
+            [ 
+              InlineKeyboardButton("๏ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ๏", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+            ],
+            [
+              InlineKeyboardButton("๏sᴜᴘᴘᴏʀᴛ ᴛᴇᴀᴍ๏", url="https://t.me/HEROKUFREECC"),
+              InlineKeyboardButton("๏ᴍʏ ᴅᴇᴠʟᴏᴘᴇʀ๏", user_id=config.OWNER_ID)
+            ],
+            [
+              InlineKeyboardButton("๏ʙᴏᴛ ғᴇᴀᴛᴜʀᴇs๏", callback_data="settings_back_helper"),
+              InlineKeyboardButton("๏ʙᴏᴛ ᴄᴏᴅᴇs๏", callback_data="new_callback_data")
+            ]
+        ]
+    
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            caption=start_txt,
+            reply_markup=reply_markup
+        )
+
 
     elif query.data == 'new_callback_data':
         await query.message.edit_media(
