@@ -5,12 +5,6 @@ from daxxop.modules.start import *
 
 
 
-
-
-# -------------------
-
-glink = "https://t.me/DAXXSUPPORT"
-
 # --------------------------------------------------------------
 @app.on_callback_query(filters.regex("^close_data"))
 async def close_callback(_, query):
@@ -29,9 +23,9 @@ async def close_callback(_, query):
 @app.on_message(filters.private & filters.command('help'))
 def help_handler(client, message):
     help_text = """๏ᴄʜᴏᴏsᴇ ᴛʜᴇ ᴄᴀᴛᴇɢᴏʀʏ ғᴏʀ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴɴᴀ ɢᴇᴛ ʜᴇʟᴩ.
-ᴀsᴋ ʏᴏᴜʀ ᴅᴏᴜʙᴛs ᴀᴛ [sᴜᴘᴘᴏʀᴛ]{(glink)}
+ᴀsᴋ ʏᴏᴜʀ ᴅᴏᴜʙᴛs ᴀᴛ sᴜᴘᴘᴏʀᴛ
 
-ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ *: /"""
+ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ ๏: /"""
     
     buttons = [
         [
