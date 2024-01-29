@@ -3,7 +3,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from daxxop import daxxop as app
 from config import BOT_USERNAME, OWNER_ID 
 import config
-from pyrogram.types import InputMediaVideo
+from pyrogram.types import InputMediaVideo, InputMediaPhoto
 import random 
 from pyrogram.types import Message
 
