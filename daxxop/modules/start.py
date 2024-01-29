@@ -37,7 +37,7 @@ async def start(_, msg):
           InlineKeyboardButton("๏ᴍʏ ᴅᴇᴠʟᴏᴘᴇʀ๏", user_id=config.OWNER_ID)
         ],
         [
-          InlineKeyboardButton("๏ʙᴏᴛ ғᴇᴀᴛᴜʀᴇs๏", callback_data="githelp"),
+          InlineKeyboardButton("๏ʙᴏᴛ ғᴇᴀᴛᴜʀᴇs๏", callback_data="_help"),
           InlineKeyboardButton("๏ʙᴏᴛ ᴄᴏᴅᴇs๏", callback_data="new_callback_data")
         ]]
     
@@ -79,7 +79,7 @@ async def new_callback_function(_, callback_query):
         media=InputMediaVideo("https://graph.org/file/8926caeb4948c47b12080.mp4", has_spoiler=True),
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton(text="๏ ʙᴀᴄᴋ ๏", callback_data="githelp")]
+                [InlineKeyboardButton(text="๏ ʙᴀᴄᴋ ๏", callback_data="_help")]
             ]
         ),
     )
@@ -89,31 +89,7 @@ async def new_callback_function(_, callback_query):
 
 
 #------------------------------------------------------------------------------------
-@app.on_callback_query()
-def callback_query_handler(client, query):
-    if query.data == 'githelp':
-        ghelp_text = (
-            "๏ ɢɪᴛʜᴜʙ & ʜᴇʀᴏᴋᴜ ᴄᴏɴᴛʀᴏʟ ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅs ๏\n"
-            "➪/start - sᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ \n"
-            "➪/help -  Dɪsᴘʟᴀʏ ᴛʜɪs ʜᴇʟᴘ ᴍᴇssᴀɢᴇ\n"
-            "➪/allrepo - Lɪsᴛ ʏᴏᴜʀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀɪᴇs ᴜsᴇ /allrepo daxxteam\n\n"
-            "➪/create_repo - Cʀᴇᴀᴛᴇ ᴀ ɴᴇᴡ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
-            "➪/delrepo - Dᴇʟᴇᴛᴇ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
-            "➪/add_collaborator - Aᴅᴅ ᴀ ᴄᴏʟʟᴀʙᴏʀᴀᴛᴏʀ ᴛᴏ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
-            "➪/remove_collaborator - Rᴇᴍᴏᴠᴇ ᴀ ᴄᴏʟʟᴀʙᴏʀᴀᴛᴏʀ ғʀᴏᴍ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ "
-        )
 
-        
-        buttons = [
-            [
-                InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close_data")
-            ]
-        ]
-        reply_markup = InlineKeyboardMarkup(buttons)
-
-        
-        query.message.edit_text(ghelp_text, reply_markup=reply_markup)
-        
 #----------------------------------------------------------------------------------------------
 
 #--------------------------------------------------
