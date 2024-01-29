@@ -23,21 +23,17 @@ def help_handler(client, message):
     buttons = [
         [
             InlineKeyboardButton("๏ɢɪᴛʜᴜʙ๏", callback_data="githelp"),
-            InlineKeyboardButton("๏ᴀɪ๏", callback_data="button2"),
-            InlineKeyboardButton("๏ʜᴇʀᴏᴋᴜ๏", callback_data="button3")
+            InlineKeyboardButton("๏ᴀɪ๏", callback_data="aihelp"),
+            InlineKeyboardButton("๏ʜᴇʀᴏᴋᴜ๏", callback_data="herokuhelp")
         ],
         [
-            InlineKeyboardButton("๏ᴛᴏᴏʟs๏", callback_data="button4"),
-            InlineKeyboardButton("๏ɪɴғᴏ๏", callback_data="button5"),
-            InlineKeyboardButton("๏ᴅᴇᴠ ᴛᴏᴏʟs๏", callback_data="button6")
+            InlineKeyboardButton("๏ᴛᴏᴏʟs๏", callback_data="toolhelp"),
+            InlineKeyboardButton("๏ɪɴғᴏ๏", callback_data="infohelp"),
+            InlineKeyboardButton("๏ᴅᴇᴠ ᴛᴏᴏʟs๏", callback_data="devhelp")
         ],
+        
         [
-            InlineKeyboardButton("Button 7", callback_data="button7"),
-            InlineKeyboardButton("Button 8", callback_data="button8"),
-            InlineKeyboardButton("Button 9", callback_data="button9")
-        ],
-        [
-            InlineKeyboardButton("Button 10", callback_data="button10")
+            InlineKeyboardButton("๏ʙᴀᴄᴋ๏", callback_data="backhelp")
         ]
     ]
   
