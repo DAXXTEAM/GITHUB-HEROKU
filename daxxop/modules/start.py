@@ -105,7 +105,7 @@ help_text = """๏ᴄʜᴏᴏsᴇ ᴛʜᴇ ᴄᴀᴛᴇɢᴏʀʏ ғᴏʀ ᴡʜɪ
 
 
 @app.on_message(filters.private & filters.command('help'))
-def help_handler(client, message):  
+async def help_handler(client, message):  
     reply_markup = InlineKeyboardMarkup(buttons)  
     message.reply_text(help_text, reply_markup=reply_markup)
 
@@ -113,7 +113,7 @@ def help_handler(client, message):
 
 
 @app.on_callback_query()
-def callback_query_handler(_, query):
+async def callback_query_handler(_, query):
     if query.data == 'close_data':
         chat_id = query.message.chat.id
         await query.message.delete()
