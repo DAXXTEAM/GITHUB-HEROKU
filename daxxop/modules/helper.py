@@ -2,6 +2,20 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from daxxop import daxxop as app
 
+
+
+# --------------------------------------------------------------
+@app.on_callback_query(filters.regex("^close_data"))
+async def close_callback(_, query):
+    chat_id = query.message.chat.id
+    await query.message.delete()
+
+
+# ------------------------------------------------------------
+
+
+
+
 @app.on_message(filters.private & filters.command('help'))
 def help_handler(client, message):
     help_text = "This is a sample bot.\n\nYou can use the following commands:"
@@ -9,13 +23,13 @@ def help_handler(client, message):
     buttons = [
         [
             InlineKeyboardButton("๏ɢɪᴛʜᴜʙ๏", callback_data="githelp"),
-            InlineKeyboardButton("Button 2", callback_data="button2"),
-            InlineKeyboardButton("Button 3", callback_data="button3")
+            InlineKeyboardButton("๏ᴀɪ๏", callback_data="button2"),
+            InlineKeyboardButton("๏ʜᴇʀᴏᴋᴜ๏", callback_data="button3")
         ],
         [
-            InlineKeyboardButton("Button 4", callback_data="button4"),
-            InlineKeyboardButton("Button 5", callback_data="button5"),
-            InlineKeyboardButton("Button 6", callback_data="button6")
+            InlineKeyboardButton("๏ᴛᴏᴏʟs๏", callback_data="button4"),
+            InlineKeyboardButton("๏ɪɴғᴏ๏", callback_data="button5"),
+            InlineKeyboardButton("๏ᴅᴇᴠ ᴛᴏᴏʟs๏", callback_data="button6")
         ],
         [
             InlineKeyboardButton("Button 7", callback_data="button7"),
