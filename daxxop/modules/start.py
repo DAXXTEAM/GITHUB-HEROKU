@@ -33,7 +33,7 @@ async def start(_, message):
           InlineKeyboardButton("๏ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ๏", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
         ],
         [
-          InlineKeyboardButton("๏sᴜᴘᴘᴏʀᴛ ᴛᴇᴀᴍ๏", user_id=config.LOGGER_ID),
+          InlineKeyboardButton("๏sᴜᴘᴘᴏʀᴛ ᴛᴇᴀᴍ๏", url="https://t.me/ALLTYPECC"),
           InlineKeyboardButton("๏ᴍʏ ᴅᴇᴠʟᴏᴘᴇʀ๏", user_id=config.OWNER_ID)
         ],
         [
@@ -185,10 +185,12 @@ async def callback_query_handler(_, query):
             "➪/delrepo - Dᴇʟᴇᴛᴇ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
             "➪/add_collaborator - Aᴅᴅ ᴀ ᴄᴏʟʟᴀʙᴏʀᴀᴛᴏʀ ᴛᴏ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
             "➪/remove_collaborator - Rᴇᴍᴏᴠᴇ ᴀ ᴄᴏʟʟᴀʙᴏʀᴀᴛᴏʀ ғʀᴏᴍ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
-            "➪/font /delrepo - Dᴇʟᴇᴛᴇ ᴀ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
+            "➪/delrepo - Dᴇʟᴇᴛᴇ ᴀ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
             "➪/downloadrepo - Dᴏᴡɴʟᴏᴀᴅ ᴀ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
             "➪/fork - Fᴏʀᴋ ᴀ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
             "➪/forkall - Fᴏʀᴋ ᴀʟʟ ʀᴇᴘᴏsɪᴛᴏʀɪᴇs"
+            "➪/gitpublic - Git public operations"
+            "➪/gitprivate - Git private operations"
         )
         
         buttons = [
@@ -237,7 +239,8 @@ async def callback_query_handler(_, query):
     elif query.data == 'toolhelp':
         toolhelp_text = (
             "➪/table - Gᴇɴᴇʀᴀᴛᴇ ᴀ ᴛᴀʙʟᴇ\n"
-            "➪/telegraph /tgm - ᴛᴇʟᴇɢʀᴀᴍ ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇ\n"             
+            "➪/telegraph /tgm - ᴛᴇʟᴇɢʀᴀᴍ ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇ\n" 
+            "➪/ping - Check network connectivity"
         )
         
         buttons = [
@@ -248,7 +251,7 @@ async def callback_query_handler(_, query):
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(toolhelp_text, reply_markup=reply_markup)
 
-    elif query.data == 'infohelp':
+    elif query.data == 'devhelp':
         devhelp_text = (
             "➪/html - HTML-ʀᴇʟᴀᴛᴇᴅ ᴏᴘᴇʀᴀᴛɪᴏɴs ᴡᴇʙsɪᴛᴇ ᴅʟ\n"
             "➪/pypi - Pʏᴛʜᴏɴ Pᴀᴄᴋᴀɢᴇ Iɴᴅᴇx ᴏᴘᴇʀᴀᴛɪᴏɴs\n"
@@ -263,7 +266,7 @@ async def callback_query_handler(_, query):
         reply_markup = InlineKeyboardMarkup(buttons)     
         await query.message.edit_text(devhelp_text, reply_markup=reply_markup)
 
-    elif query.data == 'devhelp':
+    elif query.data == 'infohelp':
         infohelp_text = (
             "➪/github /git - GɪᴛHᴜʙ-Rᴇʟᴀᴛᴇᴅ Oᴘᴇʀᴀᴛɪᴏɴs\n"
             "➪/id - Usᴇʀ ID Iɴғᴏ\n"  
