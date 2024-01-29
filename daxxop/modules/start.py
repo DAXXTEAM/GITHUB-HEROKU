@@ -68,39 +68,9 @@ async def help_command(client, message):
 
     await message.reply_text(caption, reply_markup=keyboard)
 
-#------------------------------------------------------------------------------------#
 
 
-#------------------------------------------------------------------------------------
-
-@app.on_callback_query(filters.regex("new_callback_data"))
-async def new_callback_function(_, callback_query):
-    await callback_query.edit_message_media(
-        media=InputMediaVideo("https://graph.org/file/8926caeb4948c47b12080.mp4", has_spoiler=True),
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [InlineKeyboardButton(text="๏ ʙᴀᴄᴋ ๏", callback_data="settings_back_helper")]
-            ]
-        ),
-    )
-
-
-
-
-
-#------------------------------------------------------------------------------------
-
-#----------------------------------------------------------------------------------------------
-
-#--------------------------------------------------
-
-
-# Additional callback for closing the message
-@app.on_callback_query(filters.regex("^close_data"))
-async def close_callback(_, query):
-    chat_id = query.message.chat.id
-    await query.message.delete()
-# incoming msg
+#-------------------------------------------------
 
 @app.on_message(filters.private & filters.incoming)
 async def on_pm_s(client: Client, message: Message):
@@ -108,3 +78,76 @@ async def on_pm_s(client: Client, message: Message):
         fwded_mesg = await message.forward(chat_id=OWNER_ID, disable_notification=True)
 
        
+glink = 'https://t.me/DAXXSUPPORT'
+
+
+buttons = [
+        [
+            InlineKeyboardButton("๏ɢɪᴛʜᴜʙ๏", callback_data="githelp"),
+            InlineKeyboardButton("๏ᴀɪ๏", callback_data="aihelp"),
+            InlineKeyboardButton("๏ʜᴇʀᴏᴋᴜ๏", callback_data="herokuhelp")
+        ],
+        [
+            InlineKeyboardButton("๏ᴛᴏᴏʟs๏", callback_data="toolhelp"),
+            InlineKeyboardButton("๏ɪɴғᴏ๏", callback_data="infohelp"),
+            InlineKeyboardButton("๏ᴅᴇᴠ ᴛᴏᴏʟs๏", callback_data="devhelp")
+        ],
+        
+        [
+            InlineKeyboardButton("๏ʙᴀᴄᴋ๏", callback_data="backhelp")
+        ]
+    ]
+
+help_text = """๏ᴄʜᴏᴏsᴇ ᴛʜᴇ ᴄᴀᴛᴇɢᴏʀʏ ғᴏʀ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴɴᴀ ɢᴇᴛ ʜᴇʟᴩ.
+ᴀsᴋ ʏᴏᴜʀ ᴅᴏᴜʙᴛs ᴀᴛ sᴜᴘᴘᴏʀᴛ
+
+ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ ๏: /"""
+
+
+@app.on_message(filters.private & filters.command('help'))
+def help_handler(client, message):  
+    reply_markup = InlineKeyboardMarkup(buttons)  
+    message.reply_text(help_text, reply_markup=reply_markup)
+
+
+
+
+@app.on_callback_query()
+def callback_query_handler(_, query):
+    if query.data == 'close_data':
+        chat_id = query.message.chat.id
+        await query.message.delete()
+    elif query.data == 'settings_back_helper':
+        reply_markup = InlineKeyboardMarkup(buttons)  
+        query.message.reply_text(help_text, reply_markup=reply_markup)
+    elif query.data == 'new_callback_data':
+        await callback_query.edit_message_media(
+            media=InputMediaVideo("https://graph.org/file/8926caeb4948c47b12080.mp4", has_spoiler=True),
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [InlineKeyboardButton(text="๏ ʙᴀᴄᴋ ๏", callback_data="settings_back_helper")]
+                ]
+            ),
+        )
+    elif query.data == 'githelp':
+        ghelp_text = (
+            "๏ ɢɪᴛʜᴜʙ & ʜᴇʀᴏᴋᴜ ᴄᴏɴᴛʀᴏʟ ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅs ๏\n"
+            "➪/start - sᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ \n"
+            "➪/help -  Dɪsᴘʟᴀʏ ᴛʜɪs ʜᴇʟᴘ ᴍᴇssᴀɢᴇ\n"
+            "➪/allrepo - Lɪsᴛ ʏᴏᴜʀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀɪᴇs ᴜsᴇ /allrepo daxxteam\n\n"
+            "➪/create_repo - Cʀᴇᴀᴛᴇ ᴀ ɴᴇᴡ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
+            "➪/delrepo - Dᴇʟᴇᴛᴇ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
+            "➪/add_collaborator - Aᴅᴅ ᴀ ᴄᴏʟʟᴀʙᴏʀᴀᴛᴏʀ ᴛᴏ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
+            "➪/remove_collaborator - Rᴇᴍᴏᴠᴇ ᴀ ᴄᴏʟʟᴀʙᴏʀᴀᴛᴏʀ ғʀᴏᴍ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ "
+        )
+
+        
+        buttons = [
+            [
+                InlineKeyboardButton("๏ʙᴀᴄᴋ๏", callback_data="help")
+            ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+
+        
+        query.message.edit_text(ghelp_text, reply_markup=reply_markup)
