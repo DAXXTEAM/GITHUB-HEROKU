@@ -243,3 +243,32 @@ async def callback_query_handler(_, query):
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(toolhelp_text, reply_markup=reply_markup)
+
+    elif query.data == 'infohelp':
+        devhelp_text = (
+            "/html - HTML-ʀᴇʟᴀᴛᴇᴅ ᴏᴘᴇʀᴀᴛɪᴏɴs ᴡᴇʙsɪᴛᴇ ᴅʟ\n"
+            "/pypi - Pʏᴛʜᴏɴ Pᴀᴄᴋᴀɢᴇ Iɴᴅᴇx ᴏᴘᴇʀᴀᴛɪᴏɴs\n"
+            "/leavegroup - Lᴇᴀᴠᴇ ᴀ Tᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘ\n"              
+        )
+  
+        buttons = [
+            [
+                InlineKeyboardButton("๏ʙᴀᴄᴋ๏", callback_data="settings_back_helper")
+            ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)     
+        await query.message.edit_text(devhelp_text, reply_markup=reply_markup)
+
+    elif query.data == 'devhelp':
+        infohelp_text = (
+            "/github /git - GɪᴛHᴜʙ-Rᴇʟᴀᴛᴇᴅ Oᴘᴇʀᴀᴛɪᴏɴs"
+            "/id - Usᴇʀ ID Iɴғᴏ"    
+        )
+        
+        buttons = [
+            [
+                InlineKeyboardButton("๏ʙᴀᴄᴋ๏", callback_data="settings_back_helper")
+            ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(infohelp_text, reply_markup=reply_markup)
