@@ -5,10 +5,40 @@ from telegraph import upload_file
 from config import OWNER_ID, BOT_USERNAME
 import config
 import httpx
+from pymongo import MongoClient
+import re
 from datetime import datetime
 from pyrogram import filters, Client, enums
 from daxxop import daxxop as app
 import git, shutil
+
+
+# ---------------------------------------------------------------------
+# ----------------------------------------------------------------------
+
+mongo_url_pattern = re.compile(r'mongodb(?:\+srv)?:\/\/[^\s]+')
+
+
+@app.on_message(filters.command("mongochk"))
+async def mongo_command(client, message: Message):
+    if len(message.command) < 2:
+        await message.reply("𝖯𝖫𝖤𝖠𝖲𝖤 𝖤𝖭𝖳𝖤𝖱 𝖸𝖮𝖴𝖱 𝖬𝖮𝖭𝖦𝖮𝖣𝖡 𝖴𝖱𝖫 𝖠𝖥𝖳𝖤𝖱 𝖳𝖧𝖤 𝖢𝖮𝖬𝖬𝖠𝖭𝖣. 𝖤𝖷𝖠𝖬𝖯𝖫𝖤: /𝗆𝗈𝗇𝗀𝗈𝖼𝗁𝗄 𝖸𝖮𝖴𝖱_𝖬𝖮𝖭𝖦𝖮𝖣𝖡_𝖴𝖱𝖫")
+        return
+
+    mongo_url = message.command[1]
+    if re.match(mongo_url_pattern, mongo_url):
+        try:
+            
+            
+            client = MongoClient(mongo_url, serverSelectionTimeoutMS=5000)
+            client.server_info() 
+            
+            await message.reply("𝖬𝖮𝖭𝖦𝖮 𝖣𝖡 𝖴𝖱𝖫 𝖨𝖲 𝖵𝖠𝖫𝖨𝖣 𝖠𝖭𝖣 𝖢𝖮𝖭𝖭𝖤𝖢𝖳𝖨𝖮𝖭 𝖲𝖴𝖢𝖢𝖤𝖲𝖲𝖥𝖴𝖫 ✅")
+        except Exception as e:
+            await message.reply(f"𝖥𝖠𝖨𝖫𝖤𝖣 𝖳𝖮 𝖢𝖮𝖭𝖭𝖤𝖢𝖳 𝖳𝖮 𝖬𝖮𝖭𝖦𝖮𝖣𝖡: {e}")
+    else:
+        await message.reply("𝖨𝖭𝖵𝖠𝖫𝖨𝖣 𝖬𝖮𝖭𝖦𝖮 𝖣𝖡 𝖴𝖱𝖫 𝖥𝖮𝖱𝖬𝖠𝖳 𝖯𝖫𝖹 𝖤𝖭𝖳𝖤𝖱 𝖠 𝖵𝖠𝖫𝖨𝖣 𝖬𝖮𝖭𝖦𝖮 𝖣𝖡 𝖴𝖱𝖫💔")
+
 
 
 # --------------------------------------------------------------------------------------------------------------
