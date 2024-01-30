@@ -20,4 +20,3 @@ LOGGER_ID = int(os.environ.get("LOGGER_ID"))
 # ------------------------------------------------
 HEROKU_API = os.environ.get("HEROKU_API")
 # ------------------------------------------------
-HEROKU_API2 = os.environ.get("HEROKU_API2")
