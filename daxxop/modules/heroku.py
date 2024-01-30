@@ -6,7 +6,7 @@ from pyrogram.types import Message
 from pyrogram import Client, filters
 from heroku3 import from_key
 from daxxop import daxxop as app
-from config import OWNER_ID
+from config import OWNER_ID, HEROKU_API, HEROKU_API2
 
 # ----------------------- ------# ----------------------- ------
 HEROKU_API= config.HEROKU_API2
