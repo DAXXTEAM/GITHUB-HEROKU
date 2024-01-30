@@ -18,5 +18,6 @@ GIT_TOKEN = os.environ.get("GIT_TOKEN")
 # ------------------------------------------------
 LOGGER_ID = int(os.environ.get("LOGGER_ID"))
 # ------------------------------------------------
-HEROKU_API = os.environ.get("HEROKU_API")
+#HEROKU_API = os.environ.get("HEROKU_API")
 # ------------------------------------------------
+HEROKU_API = list(map(int, getenv("HEROKU_API", "").split()))
