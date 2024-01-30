@@ -2,8 +2,9 @@ import asyncio, os, time, aiohttp, random, requests
 from requests.adapters import HTTPAdapter, Retry
 from pyrogram.types import Message, ChatMemberUpdated, InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
 from telegraph import upload_file
-from config import OWNER_ID
+from config import OWNER_ID, BOT_USERNAME
 import config
+import httpx
 from datetime import datetime
 from pyrogram import filters, Client, enums
 from daxxop import daxxop as app
@@ -12,6 +13,27 @@ import git, shutil
 
 # --------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------
+
+@app.on_message(filters.command("repo"))
+async def repo(_, message):
+    async with httpx.AsyncClient() as client:
+        response = await client.get("https://api.github.com/repos/DAXXTEAM/GITHUB-HEROKU/contributors")
+    
+    if response.status_code == 200:
+        users = response.json()
+        list_of_users = ""
+        count = 1
+        for user in users:
+            list_of_users += f"{count}. [{user['login']}]({user['html_url']})\n"
+            count += 1
+
+        text = f"""[𝖱𝖤𝖯𝖮 𝖫𝖨𝖭𝖪](https://github.com/DAXXTEAM/GITHUB-HEROKU) | [𝖦𝖱𝖮𝖴𝖯](https://t.me/HEROKUFREECC)
+| 𝖢𝖮𝖭𝖳𝖱𝖨𝖡𝖴𝖳𝖮𝖱𝖲 |
+----------------
+{list_of_users}"""
+        await app.send_message(message.chat.id, text=text, disable_web_page_preview=True)
+    else:
+        await app.send_message(message.chat.id, text="Failed to fetch contributors.")
 # -------------------------------------------------------------------------------------------------------
 
 
