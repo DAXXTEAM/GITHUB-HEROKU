@@ -6,6 +6,7 @@ asyncio==3.4.3
 python-dotenv==1.0.0
 GitPython
 gtts
+pymongo
 httpx
 telegraph
 heroku3
