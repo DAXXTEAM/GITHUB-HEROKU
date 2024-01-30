@@ -13,7 +13,43 @@ from config import OWNER_ID, HEROKU_API
 HEROKU_API = config.HEROKU_API
 
 # ----------------------- ------# ----------------------- ------
-# ----------------
+# --------------------------------------------------------------------------------
+
+@app.on_message(filters.command("createapp") & filters.user(OWNER_ID))
+async def create_app_command(client, message):
+    
+    app_name = message.text.split("/createapp")[1].strip()
+
+    
+    if not app_name:
+        await message.reply("Please provide a name for the Heroku app.")
+        return
+
+    
+    heroku_api_url = "https://api.heroku.com/apps"
+
+    
+    headers = {
+        "Accept": "application/vnd.heroku+json; version=3",
+        "Authorization": f"Bearer {HEROKU_API}",
+    }
+
+    
+    payload = {"name": app_name}
+
+    
+    response = requests.post(heroku_api_url, json=payload, headers=headers)
+
+    
+    if response.status_code == 201:
+        await message.reply(f"Heroku app '{app_name}' created successfully!")
+    else:
+        await message.reply(f"Failed to create Heroku app. Error: {response.text}")
+
+
+
+# --------------------------------------------------------------------------------------------
+
 
  #Function to add collaboration
 def add_collaboration(app_name, email):
