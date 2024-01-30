@@ -43,6 +43,13 @@ async def myinfo_command(client, message):
     
 
 # ----------------------------------------------------------------------------------------------------
+
+@app.on_message(filters.command("leavegroup")& filters.user(OWNER_ID))
+async def bot_leave(_, message):
+    chat_id = message.chat.id
+    text = f"𝖸𝗈𝗎𝗋 𝖡𝗈𝗍 𝖲𝗎𝖼𝖼𝖾𝗌𝗌𝖿𝗎𝗅 𝖫𝖾𝖿𝗍 🙋‍♂️  !!."
+    await message.reply_text(text)
+    await app.leave_chat(chat_id=chat_id, delete=True)
 # ----------------------------------------------------------------------------------------------------
 
 @app.on_message(filters.command("repo"))
