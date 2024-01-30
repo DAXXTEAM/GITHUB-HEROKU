@@ -27,13 +27,15 @@ async def myinfo_command(client, message):
             await app.send_message(chat_id=message.chat.id, text="𝖨𝖭𝖵𝖠𝖫𝖨𝖣 𝖴𝖲𝖤𝖱 𝖨𝖣.")
             return
 
-    user_info = f"""
-        **๏𝖴𝖲𝖤𝖱 𝖨𝖭𝖥𝖮๏**\n\n
-        **𝖨𝖣: `{user.id}`**\n
-        **𝖥𝖨𝖱𝖲𝖳 𝖭𝖠𝖬𝖤: {user.first_name}**\n
-        **𝖴𝖲𝖤𝖱𝖭𝖠𝖬𝖤: @{user.username}**\n
-        **𝖴𝖲𝖤𝖱 𝖫𝖨𝖭𝖪:  {user.mention}**
-    """
+    user_info = (
+        f"┏━━━━━━━━━━━━━━━━━⧫\n"
+        f"┠ ◆ **𝖨𝖣: `{user.id}`**\n"
+        f"┠ ◆ **𝖴𝖲𝖤𝖱𝖭𝖠𝖬𝖤: {user.first_name}**\n"
+        f"┠ ◆ **𝖥𝖨𝖱𝖲𝖳 𝖭𝖠𝖬𝖤: {user.first_name}**\n"
+        f"┠ ◆ **𝖴𝖲𝖤𝖱 𝖫𝖨𝖭𝖪: {user.mention}**"
+        f"┗━━━━━━━━━━━━━━━━━⧫"
+    )
+
     
     await app.send_message(chat_id=message.chat.id, text=user_info)
     
