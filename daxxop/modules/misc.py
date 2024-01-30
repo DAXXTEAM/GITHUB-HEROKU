@@ -28,11 +28,12 @@ async def myinfo_command(client, message):
             return
 
     user_info = f"""
-                      **๏𝖴𝖲𝖤𝖱 𝖨𝖭𝖥𝖮๏**\n\n
-                      **𝖨𝖣: `{user.id}`**\n
-                      **𝖥𝖨𝖱𝖲𝖳 𝖭𝖠𝖬𝖤: {user.first_name}**\n
-                      **𝖴𝖲𝖤𝖱𝖭𝖠𝖬𝖤: @{user.username}**\n
-                      **𝖴𝖲𝖤𝖱 𝖫𝖨𝖭𝖪:  {user.mention}**"""
+        **๏𝖴𝖲𝖤𝖱 𝖨𝖭𝖥𝖮๏**\n\n
+        **𝖨𝖣: `{user.id}`**\n
+        **𝖥𝖨𝖱𝖲𝖳 𝖭𝖠𝖬𝖤: {user.first_name}**\n
+        **𝖴𝖲𝖤𝖱𝖭𝖠𝖬𝖤: @{user.username}**\n
+        **𝖴𝖲𝖤𝖱 𝖫𝖨𝖭𝖪:  {user.mention}**
+    """
     
     await app.send_message(chat_id=message.chat.id, text=user_info)
     
