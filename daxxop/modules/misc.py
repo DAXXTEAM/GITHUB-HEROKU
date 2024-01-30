@@ -28,8 +28,8 @@ async def info(_, message):
             return
 
     user_info = f"๏𝖴𝖲𝖤𝖱 𝖨𝖭𝖥𝖮๏\n 𝖨𝖣: {user.id}\n𝖥𝖨𝖱𝖲𝖳 𝖭𝖠𝖬𝖤: {user.first_name}\n 𝖴𝖲𝖤𝖱𝖭𝖠𝖬𝖤: @{user.username}\n𝖴𝖲𝖤𝖱 𝖫𝖨𝖭𝖪: {user.mention}"
-    app.send_message(chat_id=message.chat.id, text=user_info)
-
+    #app.send_message(chat_id=message.chat.id, text=user_info)
+await app.send_message(chat_id=message.chat.id, text=user_info)
 # ----------------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------
 
