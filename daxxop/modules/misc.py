@@ -15,21 +15,22 @@ import git, shutil
 # ------------------------------------------------------------------------------------------------
 
 @app.on_message(filters.command('info'))
-async def info(_, message):
+async def myinfo_command(client, message):
     user = message.from_user
 
     if len(message.command) > 1:
         
         try:
             user_id = int(message.command[1])
-            user = app.get_users(user_id)
+            user = await app.get_users(user_id)
         except ValueError:
-            app.send_message(chat_id=message.chat.id, text="𝖨𝖭𝖵𝖠𝖫𝖨𝖣 𝖴𝖲𝖤𝖱 𝖨𝖣.")
+            await app.send_message(chat_id=message.chat.id, text="𝖨𝖭𝖵𝖠𝖫𝖨𝖣 𝖴𝖲𝖤𝖱 𝖨𝖣.")
             return
 
     user_info = f"๏𝖴𝖲𝖤𝖱 𝖨𝖭𝖥𝖮๏\n 𝖨𝖣: {user.id}\n𝖥𝖨𝖱𝖲𝖳 𝖭𝖠𝖬𝖤: {user.first_name}\n 𝖴𝖲𝖤𝖱𝖭𝖠𝖬𝖤: @{user.username}\n𝖴𝖲𝖤𝖱 𝖫𝖨𝖭𝖪: {user.mention}"
-    #app.send_message(chat_id=message.chat.id, text=user_info)
-await app.send_message(chat_id=message.chat.id, text=user_info)
+    await app.send_message(chat_id=message.chat.id, text=user_info)
+    
+
 # ----------------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------
 
