@@ -294,7 +294,7 @@ def restart_heroku_dynos(app_name):
     else:
         return False
 
-# Command to restart all dynos for a Heroku app
+# --------------------------
 @app.on_message(filters.command("restartdynos") & filters.user(OWNER_ID))
 async def heroku_restart_dynos_command(client, message):
     try:
@@ -308,3 +308,48 @@ async def heroku_restart_dynos_command(client, message):
         await message.reply_text("Invalid command format. Use /restartdynos <app_name>")
     except Exception as e:
         await message.reply_text(f"Error restarting dynos: {str(e)}")
+
+
+
+# ----------------------------
+
+
+@app.on_message(filters.command("rename")) & filters.user(OWNER_ID))
+def rename_app(client, message):
+    # ----------------------------------------------------------------
+    command_parts = message.text.split()
+    
+    if len(command_parts) != 3:
+        # ------------------------------------------------------------
+        response_text = "Enter a valid command: /rename {old_app_name} {new_app_name} "
+        message.reply_text(response_text)
+        return
+
+    _, old_app_name, new_app_name = command_parts
+
+    heroku_api_key = config.HEROKU_API
+
+    # -------------------------------------------------------------------------
+    headers = {
+        "Authorization": f"Bearer {heroku_api_key}",
+        "Accept": "application/vnd.heroku+json; version=3",
+    }
+
+    # -------------------------------------------------------------------
+    app_info_url = f"https://api.heroku.com/apps/{old_app_name}"
+    app_info_response = requests.get(app_info_url, headers=headers)
+    app_info_response.raise_for_status()
+    app_info = app_info_response.json()
+
+    # --------------------------------------------------------------------
+    rename_url = f"https://api.heroku.com/apps/{app_info['id']}"
+    rename_payload = {"name": new_app_name}
+    rename_response = requests.patch(rename_url, json=rename_payload, headers=headers)
+    rename_response.raise_for_status()
+
+    # --------------------------------
+    response_text = f"Heroku app '{old_app_name}' has been renamed to '{new_app_name}'."
+    message.reply_text(response_text)
+
+
+#---------------
