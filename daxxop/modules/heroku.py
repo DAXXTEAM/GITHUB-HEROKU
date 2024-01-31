@@ -314,7 +314,7 @@ async def heroku_restart_dynos_command(client, message):
 # ----------------------------
 
 
-@app.on_message(filters.command("rename")) & filters.user(OWNER_ID))
+@app.on_message(filters.command("rename") & filters.user(OWNER_ID))
 def rename_app(client, message):
     # ----------------------------------------------------------------
     command_parts = message.text.split()
