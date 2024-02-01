@@ -1,7 +1,7 @@
 {
-  "name": "𝖤𝖣𝖴𝖢𝖠𝖳𝖨𝖮𝖭 𝖧𝖴𝖡",
+  "name": "github-heroku-bot",
   "description": "Telegram Bot using Pyrogram",
-  "repository": "https://github.com/DAXXTEAM/EDUCATION-HUB",
+  "repository": "https://github.com/daxxteam/daxxop",
   "env": {
     "API_ID": {
       "description": "Your Telegram API ID",
@@ -23,11 +23,23 @@
       "description": "Your Telegram User ID (Owner)",
       "required": true
     },
+    "GIT_TOKEN": {
+      "description": "Your GitHub Token",
+      "required": true
+    },
     "LOGGER_ID": {
       "description": "Your Logger Chat ID",
       "required": true
+    },
+    "HEROKU_API": {
+      "description": "Your Heroku API Key",
+      "required": true
     }
   },
-  "stack": "heroku-22",
-  "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "stack": "heroku-20"
 }
