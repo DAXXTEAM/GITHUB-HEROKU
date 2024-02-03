@@ -31,8 +31,8 @@
       "description": "Your Logger Chat ID",
       "required": true
     },
-    "DAXX_API":{
-      "description":" NEED DAXX_API GO TO @IAM_DAXXBOT"
+    "DAXX_API": {
+      "description":"NEED DAXX_API GO TO @IAM_DAXXBOT"
       "required":true
     },
     "HEROKU_API": {
