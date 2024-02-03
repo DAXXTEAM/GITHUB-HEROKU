@@ -1,7 +1,7 @@
 {
   "name": "github-heroku-bot",
   "description": "Telegram Bot using Pyrogram",
-  "repository": "https://github.com/daxxteam/daxxop",
+  "repository": "https://github.com/DAXXTEAM/GITHUB-HEROKU",
   "env": {
     "API_ID": {
       "description": "Your Telegram API ID",
@@ -32,8 +32,8 @@
       "required": true
     },
     "DAXX_API": {
-      "description":"NEED DAXX_API GO TO @IAM_DAXXBOT"
-      "required":true
+      "description": "NEED DAXX_API GO TO @IAM_DAXXBOT",
+      "required": true
     },
     "HEROKU_API": {
       "description": "Your Heroku API Key",
