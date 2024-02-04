@@ -11,7 +11,7 @@ from pyrogram.types import Message
 start_time = time.time()
 
 
-PING_MP4 = "https://graph.org/file/ace6a4bcf3b08ae581845.mp4"
+PING_MP4 = "https://telegra.ph/file/756b031774cb4382f181c.mp4"
 
 
 
