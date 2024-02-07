@@ -14,6 +14,20 @@ import git, shutil
 
 
 # ---------------------------------------------------------------------
+
+@app.on_message(filters.command(["deploy"]))
+async def heroku_command(client, message):
+    repo_url = message.text.split(" ", 1)[1]
+    heroku_url = f"https://dashboard.heroku.com/new?template={repo_url}"
+    reply_markup = InlineKeyboardMarkup(
+        [
+            [
+                InlineKeyboardButton("๏𝖣𝖤𝖯𝖫𝖮𝖸 𝖳𝖮 𝖧𝖤𝖱𝖮𝖪𝖴๏", url=heroku_url)
+            ]
+        ]
+    )
+    await message.reply_text("𝖢𝖫𝖨𝖢𝖪 𝖳𝖧𝖤 𝖡𝖴𝖳𝖳𝖮𝖭 𝖡𝖤𝖫𝖮𝖶 𝖳𝖮 𝖣𝖤𝖯𝖫𝖮𝖸 𝖳𝖮 𝖧𝖤𝖱𝖮𝖪𝖴:", reply_markup=reply_markup)
+
 # ----------------------------------------------------------------------
 
 mongo_url_pattern = re.compile(r'mongodb(?:\+srv)?:\/\/[^\s]+')
